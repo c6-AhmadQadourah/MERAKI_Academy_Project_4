@@ -11,7 +11,7 @@ newProduct
 .then((result)=>{
     res.status(201).json({
         success: true,
-        message: `Comment created`,
+        message: `Product created`,
         Product: result,
       });
 })

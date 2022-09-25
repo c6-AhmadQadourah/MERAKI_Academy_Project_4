@@ -4,6 +4,7 @@ const CommentModel = require("../models/commentSchema")
 
 const createNewComment = (req, res) => {
     const { comment , commenter } = req.body;
+
     const newComment = new CommentModel({ comment , commenter });
     newComment
       .save()

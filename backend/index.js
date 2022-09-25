@@ -14,12 +14,17 @@ const rolesRouter = require("./Routes/roleRouter")
 const commentRouter = require("./Routes/commentRouter")
 const userRouter = require("./Routes/userRouter")
 const productRouter = require("./Routes/productRouter")
+const cartRouter = require("./Routes/cartRouter")
+
+
 
 // Routes Middleware
 app.use("/roles", rolesRouter);
 app.use("/comments", commentRouter);
 app.use("/users", userRouter);
 app.use("/products", productRouter);
+app.use("/cart", cartRouter);
+
 
 
 // Handles any other endpoints [unassigned - endpoints]
