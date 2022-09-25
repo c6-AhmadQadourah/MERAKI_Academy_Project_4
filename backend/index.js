@@ -15,7 +15,7 @@ const commentRouter = require("./Routes/commentRouter")
 const userRouter = require("./Routes/userRouter")
 const productRouter = require("./Routes/productRouter")
 const cartRouter = require("./Routes/cartRouter")
-
+const loginRouter = require("./Routes/loginRouter")
 
 
 // Routes Middleware
@@ -24,6 +24,7 @@ app.use("/comments", commentRouter);
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 app.use("/cart", cartRouter);
+app.use("/login", loginRouter);
 
 
 
