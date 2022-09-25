@@ -8,8 +8,9 @@ const login =(req,res)=>{
     const password =  req.body.password
 
 usersModel.findOne({email})
-.populate("role")
+.populate("role.role" )
 .then(async (result)=>{
+
 
 if (!result) {
     return res.status(404).json({

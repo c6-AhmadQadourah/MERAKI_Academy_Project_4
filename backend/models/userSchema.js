@@ -8,7 +8,7 @@ lastName : {type : String , required :true},
 country :  {type : String },
 email :  {type : String , required :true , unique: true},
 password :  {type : String , required :true},
-role : {type : mongoose.Schema.Types.ObjectId , ref : "roles"},
+role : {type : mongoose.Schema.Types.ObjectId , ref : "role"},
 products : [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }]
 
 })
