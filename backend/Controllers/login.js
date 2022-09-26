@@ -8,7 +8,9 @@ const login =(req,res)=>{
     const password =  req.body.password
 
 usersModel.findOne({email})
-.populate("role.role" )
+.populate([{
+  path: 'role',
+  model: 'Role',} ] )
 .then(async (result)=>{
 
 
@@ -48,7 +50,7 @@ res.status(200).json({
     success: true,
     message: `Valid login credentials`,
     token: token,
-
+    result : result
     
   });
 

@@ -5,10 +5,10 @@ const {addNewItem , getAllItemsInCart ,deleteItemByIdInCart , deleteItemByProduc
 
 
 const authentication =require("../Middlewears/authentication")
-
+const authorization = require("../Middlewears/authorization")
 const cartRouter = express.Router()
 
-cartRouter.post("/" ,authentication, addNewItem)
+cartRouter.post("/" ,authentication,authorization("CREATE_PRODUCT"), addNewItem)
 cartRouter.get("/" ,authentication, getAllItemsInCart)
 cartRouter.delete("/:id" , deleteItemByIdInCart)
 cartRouter.delete("/product/:id" , deleteItemByProductInCart)
