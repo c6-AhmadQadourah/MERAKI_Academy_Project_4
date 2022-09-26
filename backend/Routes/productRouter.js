@@ -3,7 +3,7 @@ const express = require("express");
 const  {addNewProduct , getAllProducts , deleteProductById ,updateProduct} = require("../Controllers/productController")
 
 const {createNewComment} = require("../Controllers/commentController")
-const {createCategory} = require("../Controllers/categoryController")
+const {createCategory ,getAllCategories} = require("../Controllers/categoryController")
 
 const authentication = require("../Middlewears/authentication");
 const authorization = require("../Middlewears/authorization");
@@ -16,6 +16,7 @@ productRouter.delete("/:id",authentication ,authorization("CREATE_PRODUCT"), del
 productRouter.put("/:id",authentication,authorization("CREATE_PRODUCT"), updateProduct);
 productRouter.post("/:id/comments",authentication, createNewComment);
 productRouter.post("/category",authentication, createCategory);
+productRouter.get("/category",authentication, getAllCategories);
 
 
 

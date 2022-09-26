@@ -3,7 +3,7 @@ const express = require("express");
 const ProductModel = require("../models/productSchema");
 
 const addNewProduct = (req, res) => {
-  const { title, description, price, image, date } = req.body;
+  const { title, description, price, image, date , category} = req.body;
 
   const newProduct = new ProductModel({
     title,
@@ -11,6 +11,7 @@ const addNewProduct = (req, res) => {
     price,
     image,
     date,
+    category
   });
   newProduct
     .save()
@@ -32,7 +33,14 @@ const addNewProduct = (req, res) => {
 
 const getAllProducts = (req, res) => {
   ProductModel.find({})
-    .populate("comments")
+    .populate("comments" )
+    .populate([
+      {
+        path: "category",
+        model: "Category",
+        select :"industry"
+      },
+    ])
 
     .then((result) => {
       res.status(201).json({
