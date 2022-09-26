@@ -1,26 +1,26 @@
-const express = require("express")
+const express = require("express");
 
-const RoleModel = require("../models/roleSchema")
+const RoleModel = require("../models/roleSchema");
 
 const createNewRole = (req, res) => {
-    const { role, permissions } = req.body;
-    const newRole = new RoleModel({ role, permissions });
-    newRole
-      .save()
-      .then((result) => {
-        res.status(201).json({
-          success: true,
-          message: `Role created`,
-          role: result,
-        });
-      })
-      .catch((err) => {
-        res.status(500).json({
-          success: false,
-          message: `Server Error`,
-          err: err.message,
-        });
+  const { role, permissions } = req.body;
+  const newRole = new RoleModel({ role, permissions });
+  newRole
+    .save()
+    .then((result) => {
+      res.status(201).json({
+        success: true,
+        message: `Role created`,
+        role: result,
       });
-  };
-  
-  module.exports = { createNewRole };
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err.message,
+      });
+    });
+};
+
+module.exports = { createNewRole };
