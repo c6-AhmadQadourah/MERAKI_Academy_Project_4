@@ -101,7 +101,7 @@ const updateCart = (req, res) => {
       if (!result) {
         return res.status(404).json({
           success: false,
-          message: `The Product: ${_id} is not found`,
+          message: `The Item: ${_id} is not found`,
         });
       }
       res.status(200).json({
