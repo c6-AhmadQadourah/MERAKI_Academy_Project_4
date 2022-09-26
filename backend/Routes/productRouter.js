@@ -3,6 +3,7 @@ const express = require("express");
 const  {addNewProduct , getAllProducts , deleteProductById ,updateProduct} = require("../Controllers/productController")
 
 const {createNewComment} = require("../Controllers/commentController")
+const authentication = require("../Middlewears/authentication");
 
 const productRouter = express.Router()
 
@@ -10,7 +11,7 @@ productRouter.post("/", addNewProduct);
 productRouter.get("/", getAllProducts);
 productRouter.delete("/:id", deleteProductById);
 productRouter.put("/:id", updateProduct);
-productRouter.post("/:id/comments", createNewComment);
+productRouter.post("/:id/comments",authentication, createNewComment);
 
 
 

@@ -1,11 +1,14 @@
 const express = require("express");
+const { default: mongoose } = require("mongoose");
 
 const CommentModel = require("../models/commentSchema");
 const prodcutModel =require("../models/productSchema")
+
+
 const createNewComment = (req, res) => {
   const { comment } = req.body;
-  const commenter = req.token.userId;
   const _id = req.params.id;
+  const commenter = req.token.userId;
 
 
   const newComment = new CommentModel({ comment, commenter });
