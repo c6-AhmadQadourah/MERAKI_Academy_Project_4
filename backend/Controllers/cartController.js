@@ -27,7 +27,7 @@ const  addNewProduct= (req,res)=>{
         });
       });
 }
-
+  
 const getAllProductInCart = (req,res)=>{
  CartModel
  .find({})
