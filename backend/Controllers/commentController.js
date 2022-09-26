@@ -1,19 +1,33 @@
 const express = require("express");
 
 const CommentModel = require("../models/commentSchema");
-
+const prodcutModel =require("../models/productSchema")
 const createNewComment = (req, res) => {
-  const { comment, commenter } = req.body;
+  const { comment } = req.body;
+  const commenter = req.token.userId;
+  const _id = req.params.id;
+
 
   const newComment = new CommentModel({ comment, commenter });
   newComment
     .save()
     .then((result) => {
-      res.status(201).json({
-        success: true,
-        message: `Comment created`,
-        Comment: result,
-      });
+      prodcutModel
+        .updateOne({ _id: _id }, { $push: { comments: result._id } })
+        .then(() => {
+          res.status(201).json({
+            success: true,
+            message: `Comment added`,
+            comment: result,
+          });
+        })
+        .catch((err) => {
+          res.status(500).json({
+            success: false,
+            message: `Server Error`,
+            err: err.message,
+          });
+        });
     })
     .catch((err) => {
       res.status(500).json({
