@@ -3,9 +3,10 @@ const { default: mongoose } = require("mongoose")
 
 const CartModel = require("../models/cartSchema")
 
-const  addNewProduct= (req,res)=>{
+const  addNewItem= (req,res)=>{
 
-    const {product,user}= req.body
+    const {product}= req.body
+    const user = req.token.userId;
 
   const  addProductToCart = new CartModel({product ,user})
 
@@ -129,4 +130,4 @@ const updateCart = (req,res)=>{
 }
 
 
-module.exports = {addNewProduct , getAllItemsInCart , deleteItemByIdInCart , deleteItemByProductInCart,updateCart }
+module.exports = {addNewItem , getAllItemsInCart , deleteItemByIdInCart , deleteItemByProductInCart,updateCart }
