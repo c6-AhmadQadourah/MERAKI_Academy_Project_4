@@ -10,7 +10,7 @@ const authentication =(req ,res ,next)=>{
 
     try{
 
-        if (!req.body.authorization){
+        if (!req.headers.authorization){
             console.log(req.headers.authorization)
             return res.status(403).json({
                 success: false,
