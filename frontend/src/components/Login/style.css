@@ -1,0 +1,46 @@
+.BigDivLogin{
+    align-items: center;
+    align-content: center;
+    display: inline-block;
+}
+
+.infoContainer{
+
+    display: flex;
+    flex-direction: column;
+  background-color: rgb(255, 255, 255);
+    width: 600px;
+    height: 700px;
+    max-width: 1000px;
+    max-height: 1000px;
+    align-items: center;
+    align-content: center;
+    border: solid 2px blue;
+    padding-bottom: 10px;
+    margin: 5px;
+    justify-content: center;
+}
+
+.emailInput{ 
+    margin-bottom: 0px;
+    font-size: x-large;
+    color: rgb(137, 137, 243);
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+
+.loginButton{
+    border-radius: 15px;
+    background-color: rgb(137, 137, 243);
+    border: none;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    padding: 15px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
