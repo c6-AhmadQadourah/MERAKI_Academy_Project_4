@@ -33,6 +33,7 @@ const addNewProduct = (req, res) => {
 const getAllProducts = (req, res) => {
   ProductModel.find({})
     .populate("comments")
+
     .then((result) => {
       res.status(201).json({
         success: true,

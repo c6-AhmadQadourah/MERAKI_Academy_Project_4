@@ -8,7 +8,8 @@ const productSchema = new mongoose.Schema({
     price : { type : Number  },
     image : { type : String  },
     date : { type : Date  },
-    comments : [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }]
+    comments : [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+    category : { type: mongoose.Schema.Types.ObjectId, ref: "Category" }
 })
 
 module.exports = mongoose.model("Product" , productSchema)

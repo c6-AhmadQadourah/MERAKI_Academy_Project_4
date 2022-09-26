@@ -19,9 +19,9 @@ cartRouter.post(
   authorization("CREATE_PRODUCT"),
   addNewItem
 );
-cartRouter.get("/", authentication, getAllItemsInCart);
-cartRouter.delete("/:id", deleteItemByIdInCart);
-cartRouter.delete("/product/:id", deleteItemByProductInCart);
-cartRouter.put("/:id", updateCart);
+cartRouter.get("/", authentication, authorization("BROWSE"), getAllItemsInCart);
+cartRouter.delete("/:id",authentication, deleteItemByIdInCart);
+cartRouter.delete("/product/:id",authentication, deleteItemByProductInCart);
+cartRouter.put("/:id",authentication, updateCart);
 
 module.exports = cartRouter;
