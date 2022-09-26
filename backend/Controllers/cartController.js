@@ -129,4 +129,4 @@ const updateCart = (req,res)=>{
 }
 
 
-module.exports = {addNewProduct , getAllItemsInCart , deleteItemByIdInCart , deleteItemByProductInCart,updateCart}
+module.exports = {addNewProduct , getAllItemsInCart , deleteItemByIdInCart , deleteItemByProductInCart,updateCart }
