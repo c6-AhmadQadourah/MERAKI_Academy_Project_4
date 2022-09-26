@@ -101,4 +101,4 @@ const updateProduct = (req,res)=>{
 
 }
 
-module.exports = { addNewProduct, getAllProducts, deleteProductById };
+module.exports = { addNewProduct, getAllProducts, deleteProductById ,updateProduct };
