@@ -110,4 +110,27 @@ const updateProduct = (req,res)=>{
 
 }
 
-module.exports = { addNewProduct, getAllProducts, deleteProductById ,updateProduct };
+
+const getProductRegex = async (req,res)=>{
+
+  const search = req.query.search
+  const regex =new RegExp(search , "gi")
+
+ try{ const Products= await  ProductModel.find({
+    title : {$regex : regex}
+  })
+if(Products.length){
+  return res.status(201).json({Products})
+} else return res.status(404).json({
+massage : "No products found"
+})
+}
+catch(error){
+  res.status(500).json({
+    message : "Sarver Error",
+    error
+  })
+}
+}
+
+module.exports = { addNewProduct, getAllProducts, deleteProductById ,updateProduct , getProductRegex };
