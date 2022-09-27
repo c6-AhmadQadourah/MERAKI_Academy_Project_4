@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import {Navigate, useNavigate} from "react-router-dom"
 import { useEffect, useState, useContext } from "react";
+import ("./style.css")
 
 const Register = () => {
 const [firstName ,setFirstName]=useState("")
@@ -27,20 +28,20 @@ const body = {firstName,
     })
   }
 
-  return <div>
-    <div>
+  return <div className="bigDivRegister">
+    <div className="infoContainerRegister">
       <p> Register</p>
       <span>First Name</span>
-      <input onChange={(e)=>{setFirstName(e.target.value)}}/>
+      <input className="RegInput" onChange={(e)=>{setFirstName(e.target.value)}}/>
       <span>Last Name</span>
-      <input onChange={(e)=>{setLastName(e.target.value)}}/>
+      <input className="RegInput" onChange={(e)=>{setLastName(e.target.value)}}/>
       <span>Country</span>
-      <input onChange={(e)=>{setCountry(e.target.value)}}/>
+      <input className="RegInput" onChange={(e)=>{setCountry(e.target.value)}}/>
       <span>Email</span>
-      <input onChange={(e)=>{setEmail(e.target.value)}}/>
+      <input className="RegInput" onChange={(e)=>{setEmail(e.target.value)}}/>
       <span>Password</span>
-      <input onChange={(e)=>{setPassword(e.target.value)}}/>
-      <button onClick={()=>{ register()}} > Register Now !</button>
+      <input className="RegInput" onChange={(e)=>{setPassword(e.target.value)}}/>
+      <button className="registerButton" onClick={()=>{ register()}} > Register Now !</button>
     </div>
     </div>;
 };
