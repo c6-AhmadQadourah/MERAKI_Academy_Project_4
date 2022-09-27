@@ -38,7 +38,6 @@ const getAllProducts = (req, res) => {
       {
         path: "category",
         model: "Category",
-        select :"industry"
       },
     ])
 
@@ -46,7 +45,7 @@ const getAllProducts = (req, res) => {
       res.status(201).json({
         success: true,
         message: `All Products`,
-        Comment: result,
+        products: result,
       });
     })
     .catch((err) => {

@@ -20,8 +20,10 @@ const [search1 ,setSearch1] = useState("")
 
   return( 
   <div  className="navigation" style={{ display: "flex", gap: "50px" }}>
+<Link to="/"> Home </Link>
 <Link to="/login"> Login </Link>
 <Link to="/register"> Register </Link>
+
 <input onChange={(e)=>{setSearch1(e.target.value)}} /> 
 <button onClick={()=>{search(search1)}} >search Now</button>
   </div>
