@@ -24,6 +24,7 @@ console.log(token)
 
      <Route path = "/login" element={ <Login setToken={setToken} setIsLoggedin={setIsLoggedin}/>}  />
      <Route path = "/register" element={<Register/>}  />
+     
 </Routes>
     </div>
 

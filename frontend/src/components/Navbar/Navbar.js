@@ -12,6 +12,7 @@ const [search1 ,setSearch1] = useState("")
     axios.get(`http://localhost:5000/products/search?search=${search}`  )
     .then((result)=>{
         console.log(result)
+        
     })
     .catch((err)=>{
         console.log(err)
