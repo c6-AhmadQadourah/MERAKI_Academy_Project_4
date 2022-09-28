@@ -31,4 +31,29 @@ const createNewUser = (req, res) => {
     });
 };
 
-module.exports = { createNewUser };
+const getAllUsers = (req,res)=>{
+UserModel
+.find({})
+.populate([
+  {
+    path: "role",
+    model: "Role",
+  },
+])
+.then((result) => {
+  res.status(201).json({
+    success: true,
+    message: `All Users`,
+    Users: result,
+  });
+})
+.catch((err) => {
+  res.status(500).json({
+    success: false,
+    message: `Server Error`,
+    err: err.message,
+  });
+});
+}
+
+module.exports = { createNewUser ,getAllUsers};
