@@ -1,16 +1,17 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios"
 import { useParams } from "react-router-dom";
-import { TokenContext } from "../../App";
+import {AuthContext} from "../Contexts/context";
 import "./Home.css"
 
 
 const Home = ()=>{
     const [data , setData]=useState([])
-    const token = useContext(TokenContext)
+    const { token } = useContext(AuthContext);
    
-
+   
         useEffect(()=>{
+            if (token){
             axios.get("http://localhost:5000/products" , {headers:{Authorization: `Bearer ${token}`}})
             .then((response)=>{
                 console.log(response.data.products)
@@ -21,8 +22,8 @@ const Home = ()=>{
             .catch((err)=>{
                 console.log(err)
             })
-        
-        },[] )
+            }
+        },[token] )
     
 
     return <div className="bigContainer">
