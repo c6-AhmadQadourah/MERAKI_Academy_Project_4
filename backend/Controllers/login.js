@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const login = (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
+  const secret = req.body.secret
 
   usersModel
     .findOne({ email })
@@ -19,10 +20,12 @@ const login = (req, res) => {
         return res.status(404).json({
           success: false,
           message: `The email doesn't exist`,
+          
         });
       }
 
       try {
+        
         const valid = await bcrypt.compare(password, result.password);
 
         if (!valid) {
@@ -30,6 +33,17 @@ const login = (req, res) => {
             success: false,
             message: `The password you have entered is incorrect`,
           });
+        }
+
+        if (secret){
+          const secretvalid = await secret == "AbCd"
+          if(!secretvalid){
+            return res.status(403).json({
+              success: false,
+              message: ` Incorrect Secret Word`,
+
+            });
+          }
         }
 
         const payload = {

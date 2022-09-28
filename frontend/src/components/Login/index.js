@@ -9,32 +9,44 @@ import "./style.css"
 
 
 const Login = () => {
-
+  
 const [email , setEmail]=useState("")
 const [password, setPassword]= useState("")
 const [error, seterror]= useState("")
 const [iserror, setIserror]= useState(false)
+const  [secret, setSecret] = useState("")
+const [isSecret, setIsSecret] = useState(false)
 
+const [showAdminButon, setShowAdminButon] = useState(true)
 const { isLoggedIn, saveToken } = useContext(AuthContext);
 const navigate=useNavigate()
-const body = {email , password}
+const body = {email , password , secret}
 
 
 
 const login= ()=>{
 axios.post("http://localhost:5000/login" , body )
 .then((response)=>{
+  
  console.log(response.data.token)
   saveToken (response.data.token)
   localStorage.setItem("Token" , response.data.token)
   setIserror(true)
+
+  setTimeout(() => {
+    if (secret){ navigate ("/register")}
+    else{ navigate ("/")}
+    
+  }, 1000);
+ 
+ 
 
 
 })
 .catch((err)=>{
   console.log (err)
   seterror(err.response.data.message)
-  setIserror(!iserror)
+  setIserror(!true)
 
 })
 }
@@ -55,8 +67,19 @@ useEffect(() => {
 <input className="emailInput" placeholder="Write Your Email Here !!" onChange={(e)=>{setEmail(e.target.value)}}/>
 <p> Password</p>
 <input className="emailInput" placeholder="Write Your Password Here !!" onChange={(e)=>{setPassword(e.target.value)}}/>
+
+
+
 <button className="loginButton"  onClick={()=>{login()}}> Login </button>
 <p>{!iserror ? error : null}</p>
+
+{showAdminButon && <button className="loginButton"  onClick={()=>{setIsSecret(true) ; setShowAdminButon(false)}}> Admin </button>}
+
+{isSecret? <div>
+<p> Secret</p>
+<input className="emailInput" placeholder="Write Secret Here !!" onChange={(e)=>{setSecret(e.target.value)}}/>
+</div>:null }
+
 </div>
 
 

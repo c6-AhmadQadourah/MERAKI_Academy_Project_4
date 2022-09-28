@@ -29,11 +29,11 @@ const logout = () => {
     if (token) {
       saveToken(token);
     }
-    
+    /*
     if (isLoggedIn) {
         navigation("/");
     }
-    
+    */
   }, [ isLoggedIn]);
 
   const state = {
