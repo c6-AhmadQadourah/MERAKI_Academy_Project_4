@@ -4,6 +4,7 @@
 
 }
 .Container{
+    cursor: pointer;
     display: flex;
     border: 1px solid black;
 
@@ -26,11 +27,8 @@
     width: 250px;
     margin-bottom: .5px;
    border: 1.5px solid black;
-    
-}
-
-.itemContainer{
-
 
 }
+
+
 

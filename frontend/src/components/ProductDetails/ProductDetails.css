@@ -1,0 +1,28 @@
+.ContainerDetails{
+    display: flex;
+    border: 1px solid black;
+
+    margin-top: 10px;
+    margin-left: 25px;
+   justify-content: center;
+
+}
+
+
+
+
+.imgDetails{
+    margin-top: 3px;
+    height: 250px;
+    width: 250px;
+    margin-bottom: .5px;
+  /* border: 1.5px solid black;*/
+    
+}
+
+
+
+.itemContainerDetails{
+
+    
+}
