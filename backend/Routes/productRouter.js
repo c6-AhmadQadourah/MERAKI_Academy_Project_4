@@ -1,6 +1,6 @@
 const express = require("express");
 
-const  {addNewProduct , getAllProducts , deleteProductById ,updateProduct , getProductRegex} = require("../Controllers/productController")
+const  {addNewProduct , getAllProducts , deleteProductById ,updateProduct , getProductRegex , getProductByID} = require("../Controllers/productController")
 
 const {createNewComment} = require("../Controllers/commentController")
 const {createCategory ,getAllCategories} = require("../Controllers/categoryController")
@@ -18,6 +18,8 @@ productRouter.post("/:id/comments",authentication, createNewComment);
 productRouter.post("/category",authentication, createCategory);
 productRouter.get("/category",authentication, getAllCategories);
 productRouter.get("/search", getProductRegex);
+productRouter.get("/:id", getProductByID);
+
 
 
 

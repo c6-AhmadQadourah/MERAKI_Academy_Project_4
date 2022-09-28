@@ -96,7 +96,7 @@ const updateProduct = (req,res)=>{
     }
     res.status(200).json({
       success: true,
-      message: `Item Updated`,
+      message: `Product Updated`,
     });
   })
   .catch((err) => {
@@ -130,6 +130,33 @@ catch(error){
     error
   })
 }
+
 }
 
-module.exports = { addNewProduct, getAllProducts, deleteProductById ,updateProduct , getProductRegex };
+const getProductByID = (req,res)=>{
+  const _id = req.params.id;
+
+  ProductModel
+  .findById(_id)
+  .then((result) => {
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: `The Product: ${_id} is not found`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `Product Found`,
+      product: result
+    });
+  })
+  .catch((err) => {
+    res.status(500).json({
+      success: false,
+      message: `Server Error`,
+      err: err.message,
+    });
+  });
+}
+module.exports = { addNewProduct, getAllProducts, deleteProductById ,updateProduct , getProductRegex ,getProductByID };

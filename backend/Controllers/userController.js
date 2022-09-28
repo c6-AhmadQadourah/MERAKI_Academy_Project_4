@@ -13,6 +13,7 @@ const createNewUser = (req, res) => {
     password,
     role,
   });
+  
   newUser
     .save()
     .then((result) => {

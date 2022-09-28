@@ -14,13 +14,10 @@ const [email , setEmail]=useState("")
 const [password, setPassword]= useState("")
 const [error, seterror]= useState("")
 const [iserror, setIserror]= useState(false)
-const  [secret, setSecret] = useState("")
-const [isSecret, setIsSecret] = useState(false)
-
 const [showAdminButon, setShowAdminButon] = useState(true)
 const { isLoggedIn, saveToken ,setIsAdmin , isAdmin} = useContext(AuthContext);
 const navigate=useNavigate()
-const body = {email , password , secret}
+const body = {email , password  }
 
 
 
@@ -31,16 +28,23 @@ axios.post("http://localhost:5000/login" , body )
  console.log(response.data.token)
   saveToken (response.data.token)
   localStorage.setItem("Token" , response.data.token)
-
-
-
+const adminRole = response.data.result.role.role  
+console.log(adminRole)
   setIserror(true)
+  if (adminRole=="admin"){ 
+
+    setIsAdmin(true)}
+
 
   setTimeout(() => {
-    if (secret){ 
+    if (adminRole=="admin"){ 
+
+     // setIsAdmin(true)
+
   localStorage.setItem("Admin" , true)
   setIsAdmin(localStorage.getItem("Admin"))
   console.log(isAdmin)
+  console.log("aaa")
       navigate ("/register")
   }
     else{ navigate ("/")}
@@ -80,14 +84,6 @@ useEffect(() => {
 
 <button className="loginButton"  onClick={()=>{login()}}> Login </button>
 <p>{!iserror ? error : null}</p>
-
-{showAdminButon && <button className="loginButton"  onClick={()=>{setIsSecret(true) ; setShowAdminButon(false)}}> Admin </button>}
-
-{isSecret? <div>
-<p> Secret</p>
-<input className="emailInput" placeholder="Write Secret Here !!" onChange={(e)=>{setSecret(e.target.value)}}/>
-</div>:null }
-
 </div>
 
 

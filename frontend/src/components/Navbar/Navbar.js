@@ -3,6 +3,9 @@ import {useEffect , useState ,useContext, createContext} from "react"
 import axios from "axios";
 import { AuthContext } from "../Contexts/context";
 import ("./Navbar.css")
+
+
+
 const Navigation = ()=>{
 const [search1 ,setSearch1] = useState("")
   const navigate = useNavigate()
@@ -11,7 +14,9 @@ const {logout , isAdmin}=  useContext(AuthContext);
 
     axios.get(`http://localhost:5000/products/search?search=${search}`  )
     .then((result)=>{
-        console.log(result)
+      
+      //setData(result.data)
+        console.log(result.data)
         
     })
     .catch((err)=>{

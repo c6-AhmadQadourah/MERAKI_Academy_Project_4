@@ -18,7 +18,7 @@ const saveToken=(token)=>{
     setToken(token)
     setIsLoggedIn(true) 
     
-    //  setIsAdmin(localStorage.getItem("Admin"));
+     setIsAdmin(localStorage.getItem("Admin"));
       
 }
 
@@ -27,13 +27,17 @@ const logout = () => {
     setIsLoggedIn(false);
     localStorage.clear();
     navigation("/login");
+    setIsAdmin(false)
   };
 
   useEffect(() => {
-    setToken(localStorage.getItem("Token"));
+    const token = localStorage.getItem("Token")
+
+    setToken(token);
+
     if (token) {
       saveToken(token);
-      
+    
     }
     
     /*

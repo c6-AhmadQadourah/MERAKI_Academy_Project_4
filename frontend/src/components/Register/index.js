@@ -10,13 +10,15 @@ const [lastName ,setLastName]=useState("")
 const [country ,setCountry]=useState("")
 const [email , setEmail]=useState("")
 const [password, setPassword]= useState("")
+const [role, setRole] = useState("6330bbe89cea5c5c03a3fb09")
 
 
 const body = {firstName,
   lastName,
   country,
   email,
-  password,}
+  password,
+role}
 
   const register = ()=>{
     axios.post("http://localhost:5000/users", body)
