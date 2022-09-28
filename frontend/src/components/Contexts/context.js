@@ -9,12 +9,17 @@ const AuthProvider = (props) => {
     const navigation = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [token, setToken] = useState("");
-console.log(token)
+    const [isAdmin, setIsAdmin] = useState(false)
+
+console.log(isAdmin)
 
 
 const saveToken=(token)=>{
     setToken(token)
     setIsLoggedIn(true) 
+    
+    //  setIsAdmin(localStorage.getItem("Admin"));
+      
 }
 
 const logout = () => {
@@ -28,13 +33,15 @@ const logout = () => {
     setToken(localStorage.getItem("Token"));
     if (token) {
       saveToken(token);
+      
     }
+    
     /*
     if (isLoggedIn) {
         navigation("/");
     }
     */
-  }, [ isLoggedIn]);
+  }, [ isLoggedIn ]);
 
   const state = {
     token,
@@ -42,6 +49,8 @@ const logout = () => {
     logout,
     saveToken,
     setIsLoggedIn,
+    setIsAdmin,
+    isAdmin
   };
 
   return (

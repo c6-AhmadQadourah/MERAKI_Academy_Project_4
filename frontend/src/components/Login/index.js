@@ -18,7 +18,7 @@ const  [secret, setSecret] = useState("")
 const [isSecret, setIsSecret] = useState(false)
 
 const [showAdminButon, setShowAdminButon] = useState(true)
-const { isLoggedIn, saveToken } = useContext(AuthContext);
+const { isLoggedIn, saveToken ,setIsAdmin , isAdmin} = useContext(AuthContext);
 const navigate=useNavigate()
 const body = {email , password , secret}
 
@@ -31,10 +31,18 @@ axios.post("http://localhost:5000/login" , body )
  console.log(response.data.token)
   saveToken (response.data.token)
   localStorage.setItem("Token" , response.data.token)
+
+
+
   setIserror(true)
 
   setTimeout(() => {
-    if (secret){ navigate ("/register")}
+    if (secret){ 
+  localStorage.setItem("Admin" , true)
+  setIsAdmin(localStorage.getItem("Admin"))
+  console.log(isAdmin)
+      navigate ("/register")
+  }
     else{ navigate ("/")}
     
   }, 1000);

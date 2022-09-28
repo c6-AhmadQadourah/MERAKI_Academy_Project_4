@@ -6,7 +6,7 @@ import ("./Navbar.css")
 const Navigation = ()=>{
 const [search1 ,setSearch1] = useState("")
   const navigate = useNavigate()
-const {logout}=  useContext(AuthContext);
+const {logout , isAdmin}=  useContext(AuthContext);
   const search = (search)=>{
 
     axios.get(`http://localhost:5000/products/search?search=${search}`  )
@@ -19,6 +19,10 @@ const {logout}=  useContext(AuthContext);
     })
   }
 
+  const goToAdminPanel =()=>{
+    return navigate("./register")
+  }
+
   return( 
   <div  className="navigation" style={{ display: "flex", gap: "50px" }}>
 <Link to="/"> Home </Link>
@@ -28,6 +32,9 @@ const {logout}=  useContext(AuthContext);
 <input onChange={(e)=>{setSearch1(e.target.value)}} /> 
 <button onClick={()=>{search(search1)}} >search Now</button>
 <button onClick={()=>{logout()}} >Logout</button>
+{isAdmin&& <button  >Admin Panel</button> }
+
+
   </div>
   )
 }

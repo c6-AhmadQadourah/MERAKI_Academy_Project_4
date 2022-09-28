@@ -7,7 +7,7 @@ import "./Home.css"
 
 const Home = ()=>{
     const [data , setData]=useState([])
-    const { token } = useContext(AuthContext);
+    const { token  } = useContext(AuthContext);
    
    
         useEffect(()=>{
@@ -23,7 +23,7 @@ const Home = ()=>{
                 console.log(err)
             })
             }
-        },[token] )
+        },[token ] )
     
 
     return <div className="bigContainer">
