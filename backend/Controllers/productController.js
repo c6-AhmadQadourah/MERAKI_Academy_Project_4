@@ -145,7 +145,14 @@ const getProductByID = (req,res)=>{
       model: "Category",
     },
   ])
-  .populate( "comments")
+  .populate( [{
+    path: 'comments',
+    model: 'Comment',
+    populate:{
+      path : "commenter" ,
+      model : "User"
+    }
+}])
   .then((result) => {
     if (!result) {
       return res.status(404).json({

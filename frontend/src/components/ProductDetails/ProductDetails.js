@@ -90,7 +90,7 @@ const getCategory =(category1)=>{
           {comments.map((elem)=>{
             return <div className="commentsDiv">
               <div >
-              {elem.comment}
+              <p><span>{elem.commenter.firstName}</span> : <span>{elem.comment}</span>   </p> 
               </div>
            <textarea></textarea>
             </div>
