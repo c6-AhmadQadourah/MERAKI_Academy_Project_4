@@ -1,7 +1,7 @@
 .bigContainer{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr
-
+    grid-template-columns: 1fr 1fr 1fr;
+ 
 }
 .Container{
     cursor: pointer;
@@ -20,13 +20,14 @@
 
 .imgDiv{
    display: block;
+  
 }
 .img{
+    
     margin-top: 3px;
     height: 250px;
     width: 250px;
     margin-bottom: .5px;
-   border: 1.5px solid black;
 
 }
 

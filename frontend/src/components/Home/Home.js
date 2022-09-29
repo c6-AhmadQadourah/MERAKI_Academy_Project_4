@@ -10,6 +10,7 @@ import "./Home.css"
 const Home = ({setId})=>{
     const [data , setData]=useState([])
     const { token  } = useContext(AuthContext);
+    const { setOriginalData  } = useContext(AuthContext);
    
     let {id}=useParams()
 const navigate=useNavigate()
@@ -20,6 +21,7 @@ const navigate=useNavigate()
             .then((response)=>{
                 console.log(response.data.products)
                 setData(response.data.products)
+                setOriginalData(response.data.products)
                 //setLoggedUser(response.data.userId)
                 
             })
@@ -42,8 +44,9 @@ const navigate=useNavigate()
                  </div>
                  <div className="itemContainer">
                    <h1>{elem.title}</h1>
-                    <p>{elem.description}</p>
-                    <span>Price : {elem.price}$ </span>
+                   <hr></hr>
+                    <h4>{elem.description}</h4>
+                    <span><h2>Price : {elem.price}$</h2> </span>
                     
                     </div>
                     </div>

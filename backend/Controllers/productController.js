@@ -68,6 +68,7 @@ const deleteProductById = (req, res) => {
           message: `The Product : ${_id} is not found`,
         });
       }
+      
       res.status(200).json({
         success: true,
         message: `Product deleted`,
@@ -138,6 +139,13 @@ const getProductByID = (req,res)=>{
 
   ProductModel
   .findById(_id)
+  .populate([
+    {
+      path: "category",
+      model: "Category",
+    },
+  ])
+  .populate( "comments")
   .then((result) => {
     if (!result) {
       return res.status(404).json({
@@ -159,4 +167,33 @@ const getProductByID = (req,res)=>{
     });
   });
 }
-module.exports = { addNewProduct, getAllProducts, deleteProductById ,updateProduct , getProductRegex ,getProductByID };
+
+const getProductByCategory = (req,res)=>{
+  categoryid =req.params.category
+  ProductModel
+  .find({category : categoryid })
+  .then((result)=>{
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: `The Product: ${categoryid} is not found`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `Product Found`,
+      product: result
+    });
+  })
+  .catch((err) => {
+    res.status(500).json({
+      success: false,
+      message: `Server Error`,
+      err: err.message,
+    });
+  
+  })
+
+}
+
+module.exports = { addNewProduct, getAllProducts, deleteProductById ,updateProduct , getProductRegex ,getProductByID ,getProductByCategory};

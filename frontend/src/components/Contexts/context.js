@@ -10,9 +10,9 @@ const AuthProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [token, setToken] = useState("");
     const [isAdmin, setIsAdmin] = useState(false)
-
+    const [originalData, setOriginalData] = useState("")
 console.log(isAdmin)
-
+ 
 
 const saveToken=(token)=>{
     setToken(token)
@@ -32,7 +32,7 @@ const logout = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("Token")
-
+console.log(token)
     setToken(token);
 
     if (token) {
@@ -54,7 +54,9 @@ const logout = () => {
     saveToken,
     setIsLoggedIn,
     setIsAdmin,
-    isAdmin
+    isAdmin,
+    setOriginalData,
+    originalData
   };
 
   return (

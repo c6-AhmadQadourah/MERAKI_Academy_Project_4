@@ -47,4 +47,6 @@ const  getAllCategories = (req,res)=>{
   });
 }
 
+
+
 module.exports = { createCategory,getAllCategories};
