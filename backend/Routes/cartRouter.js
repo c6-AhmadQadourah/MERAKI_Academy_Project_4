@@ -7,6 +7,7 @@ const {
   deleteItemByIdInCart,
   deleteItemByProductInCart,
   updateCart,
+  getAllUserItems
 } = require("../Controllers/cartController");
 
 const authentication = require("../Middlewears/authentication");
@@ -23,5 +24,6 @@ cartRouter.get("/", authentication, authorization("BROWSE"), getAllItemsInCart);
 cartRouter.delete("/:id",authentication, deleteItemByIdInCart);
 cartRouter.delete("/product/:id",authentication, deleteItemByProductInCart);
 cartRouter.put("/:id",authentication, updateCart);
+cartRouter.get("/:id",authentication, getAllUserItems);
 
 module.exports = cartRouter;

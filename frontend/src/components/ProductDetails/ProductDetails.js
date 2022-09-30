@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../Contexts/context";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ const [comments, setComments] = useState([])
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const [product, setProduct] = useState(0)
 
 
 
@@ -25,8 +26,6 @@ const getCategory =(category1)=>{
         })
         .then((response) => {
           setData1(response.data.product);
-          
-        
           
         
         })
@@ -47,7 +46,9 @@ const getCategory =(category1)=>{
         .then((response) => {
           setData(response.data.product);
           setComments(response.data.product.comments);
-       
+          
+          setProduct(response.data.product._id)
+         
           getCategory(response.data.product.category._id)
           
           
@@ -60,7 +61,23 @@ const getCategory =(category1)=>{
   }, [token ,change ]);
 
   
+const addToCart = ()=>{
 
+
+  const body ={ product}
+
+axios.post ("http://localhost:5000/cart" , body , {
+  headers: { Authorization: `Bearer ${token}`} })
+  .then((response)=>{
+    console.log(response)
+    
+   
+  })
+  .catch((err)=>{
+    console.log(err)
+   
+  })
+}
  
 
 
@@ -82,7 +99,7 @@ const getCategory =(category1)=>{
           <hr></hr>
 
           <div className="Buttons">
-          <button className="addToCart"> Add To Cart</button>
+          <button className="addToCart" onClick={()=>{addToCart()}} > Add To Cart</button>
           <button className="addToCart"> Add To Favorite</button>
           </div>
       {/*--------------------- Comments-------------------------*/}

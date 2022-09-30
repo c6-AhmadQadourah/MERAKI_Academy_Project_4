@@ -28,13 +28,21 @@ const addNewItem = (req, res) => {
 };
 
 const getAllItemsInCart = (req, res) => {
+
+  
   CartModel.find({})
-    .populate("user", "product")
+    .populate([
+      {
+        path: "product",
+        model: "Product",
+      },
+    ])
+   
     .then((result) => {
       res.status(201).json({
         success: true,
         message: `All Products in cart`,
-        Comment: result,
+        products: result,
       });
     })
     .catch((err) => {
@@ -118,10 +126,38 @@ const updateCart = (req, res) => {
     });
 };
 
+const getAllUserItems = (req, res) => {
+
+  const _id =req.params.id
+  CartModel.find({user:_id})
+    .populate([
+      {
+        path: "product",
+        model: "Product",
+      },
+    ])
+   
+    .then((result) => {
+      res.status(201).json({
+        success: true,
+        message: `All Products in cart`,
+        products: result,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err.message,
+      });
+    });
+};
+
 module.exports = {
   addNewItem,
   getAllItemsInCart,
   deleteItemByIdInCart,
   deleteItemByProductInCart,
   updateCart,
+  getAllUserItems
 };

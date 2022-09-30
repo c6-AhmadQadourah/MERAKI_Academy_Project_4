@@ -6,7 +6,7 @@ import Register from "./components/Register";
 import Navigation from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
-
+import Cart from "./components/Cart/Cart";
 function App() {
  
 
@@ -23,6 +23,7 @@ function App() {
       <Route path = "/" element={<Home /> }  />
       
       <Route path = "/:id" element={<ProductDetails  />}  />
+      <Route path = "/cart" element={<Cart  />}  />
     
      <Route path = "/login" element={ <Login  />}  />
      <Route path = "/register" element={<Register/>}  />

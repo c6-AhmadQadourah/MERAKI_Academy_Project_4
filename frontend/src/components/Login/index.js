@@ -30,6 +30,11 @@ axios.post("http://localhost:5000/login" , body )
   localStorage.setItem("Token" , response.data.token)
 const adminRole = response.data.result.role.role  
 console.log(adminRole)
+console.log(response.data.result._id)
+
+localStorage.setItem("userId" , response.data.result._id)
+
+
   setIserror(true)
   if (adminRole=="admin"){ 
 

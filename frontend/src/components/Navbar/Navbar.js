@@ -33,6 +33,7 @@ const {logout , isAdmin}=  useContext(AuthContext);
 <Link to="/"> Home </Link>
 <Link to="/login"> Login </Link>
 <Link to="/register"> Register </Link>
+<Link to="/cart">Cart </Link>
 
 <input onChange={(e)=>{setSearch1(e.target.value)}} /> 
 <button onClick={()=>{search(search1)}} >search Now</button>
