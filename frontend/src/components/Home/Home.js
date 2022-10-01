@@ -69,6 +69,7 @@ const navigate=useNavigate()
            return (
             
             <div  onClick={()=>{navigate(`/${elem._id}`) }} key={i} className="Container">
+          
                 <div className="imgDiv">
                     <img className="img" src={elem.image} alt="img" />
                  </div>
