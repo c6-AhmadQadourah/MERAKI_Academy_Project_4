@@ -18,7 +18,7 @@ const userId=localStorage.getItem("userId")
         axios.get(`http://localhost:5000/cart/${userId} `, {headers:{Authorization: `Bearer ${token}`}})
         .then((response)=>{
             setData(response.data.products)
-           
+           console.log(response.data)
             
         })
         .catch((err)=>{

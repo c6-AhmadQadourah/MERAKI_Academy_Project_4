@@ -153,11 +153,39 @@ const getAllUserItems = (req, res) => {
     });
 };
 
+const deleteItemsforuser = (req, res) => {
+  const product = req.params.product
+
+  const _id =req.params.id
+  CartModel.findOneAndDelete({user:_id , product:product} )
+  .populate([
+    {
+      path: "product",
+      model: "Product",
+    },
+  ])
+   
+    .then((result) => {
+      res.status(200).json({
+        success: true,
+        message: `Item deleted`,
+      });    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err.message,
+      });
+    });
+};
+
+
 module.exports = {
   addNewItem,
   getAllItemsInCart,
   deleteItemByIdInCart,
   deleteItemByProductInCart,
   updateCart,
-  getAllUserItems
+  getAllUserItems,
+  deleteItemsforuser
 };

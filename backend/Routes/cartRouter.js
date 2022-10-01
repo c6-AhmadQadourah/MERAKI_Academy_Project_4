@@ -7,7 +7,8 @@ const {
   deleteItemByIdInCart,
   deleteItemByProductInCart,
   updateCart,
-  getAllUserItems
+  getAllUserItems,
+  deleteItemsforuser,
 } = require("../Controllers/cartController");
 
 const authentication = require("../Middlewears/authentication");
@@ -17,7 +18,7 @@ const cartRouter = express.Router();
 cartRouter.post(
   "/",
   authentication,
-  authorization("CREATE_PRODUCT"),
+  authorization("BROWSE"),
   addNewItem
 );
 cartRouter.get("/", authentication, authorization("BROWSE"), getAllItemsInCart);
@@ -25,5 +26,6 @@ cartRouter.delete("/:id",authentication, deleteItemByIdInCart);
 cartRouter.delete("/product/:id",authentication, deleteItemByProductInCart);
 cartRouter.put("/:id",authentication, updateCart);
 cartRouter.get("/:id",authentication, getAllUserItems);
+cartRouter.delete("/cart/:id/:product",authentication, deleteItemsforuser);
 
 module.exports = cartRouter;
