@@ -5,13 +5,18 @@ import { AuthContext } from "../Contexts/context";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./Cart.css";
 
-const Cart = () => {
+
+
+const Cart = ( ) => {
   const { token } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   // const [prductID, setProductID]=useState(0)
   const [change, setChange] = useState(false);
   const userId = localStorage.getItem("userId");
+  const [quantity, setQuantity] = useState(0)
+  
+  
 
   useEffect(() => {
     if (token) {
@@ -46,8 +51,20 @@ const Cart = () => {
       });
   };
 
+  const updateQuantity =(id)=>{
 
-  
+    const body = {quantity}
+    axios.put(`http://localhost:5000/cart/${id}` , body)
+    .then((response) => {
+     
+      console.log(response);
+     
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
   return (
     <div>
       {data.map((elem, i) => {
@@ -63,6 +80,7 @@ const Cart = () => {
               <span>
                 <h2>Price : {elem.product.price}$</h2>{" "}
               </span>
+
               <button
                 onClick={() => {
                   deleteItem(elem.product._id);
@@ -73,6 +91,12 @@ const Cart = () => {
                 Remove From Cart
               </button>
               <button> add to fav</button>
+              <div className="Q"> 
+                <p>Quantity</p>
+                <button className="qb" >-</button>   <span className="q" onChange={(e)=>{setQuantity(e.target.value)}}>{elem.quantity}   </span> <button className="qb" onClick={()=>{setQuantity(quantity=> quantity+1) }}>+</button>
+                <button onClick={()=>{updateQuantity(elem._id)}} >test</button>
+              </div>
+
             </div>
           </div>
         );

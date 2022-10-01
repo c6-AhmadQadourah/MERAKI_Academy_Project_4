@@ -3,9 +3,8 @@ import axios from "axios"
 import { useParams } from "react-router-dom";
 import {AuthContext} from "../Contexts/context";
 import {Navigate, useNavigate} from "react-router-dom"
-
 import "./Home.css"
-
+import Slideshow from "../SlideShow/SlideShow";
 
 const Home = ({setId})=>{
     const [data , setData]=useState([])
@@ -50,7 +49,12 @@ const navigate=useNavigate()
         },[token ] )
     
 
-    return <div className="bigbig">
+    return <>
+    <div className="slideShow">
+<Slideshow/>
+    </div>
+    
+    <div className="bigbig">
         {/* ------- category-------- */}
         <div className="cate">
         <h2> Categories</h2>
@@ -85,6 +89,7 @@ const navigate=useNavigate()
         })}
         </div>
     </div>
+    </>
 }
 
 export default Home

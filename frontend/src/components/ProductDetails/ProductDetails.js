@@ -5,7 +5,7 @@ import { AuthContext } from "../Contexts/context";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./ProductDetails.css";
 
-const ProductDetails = () => {
+const ProductDetails = (  ) => {
   const [data, setData] = useState([]);
   const { token } = useContext(AuthContext);
   const [data1, setData1] = useState([]);
@@ -64,7 +64,7 @@ const getCategory =(category1)=>{
 const addToCart = ()=>{
 
 
-  const body ={ product}
+  const body ={ product }
 
 axios.post ("http://localhost:5000/cart" , body , {
   headers: { Authorization: `Bearer ${token}`} })
@@ -85,6 +85,7 @@ axios.post ("http://localhost:5000/cart" , body , {
 
   return (
     <div>
+      
       <div className="ContainerDetails">
         <div className="imgDivDetails">
           <img className="imgDetails" src={data.image} alt="img" />

@@ -1,0 +1,15 @@
+.Q{
+    font-size: large;
+    font-weight: bold;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+
+    width: 150px;
+    margin-bottom: 5px
+}
+.qb{
+    margin-bottom: 5px;
+    font-size: large;
+}
+.q{
+font-size: x-large;}

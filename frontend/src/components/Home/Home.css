@@ -33,7 +33,10 @@
 
 }
 
-
+.slideShow{
+    margin-top: 25px;
+    height: 300px;
+}
 
 .cate {
 border: 5px solid black; 
