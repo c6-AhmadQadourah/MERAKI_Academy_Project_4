@@ -10,7 +10,8 @@ const Cart = ()=>{
     const { token  } = useContext(AuthContext);
     const [data , setData]=useState([])
     const navigate=useNavigate()
-
+   // const [prductID, setProductID]=useState(0)
+const [change, setChange] = useState(false)
 const userId=localStorage.getItem("userId")
     
     useEffect(()=>{
@@ -18,14 +19,29 @@ const userId=localStorage.getItem("userId")
         axios.get(`http://localhost:5000/cart/${userId} `, {headers:{Authorization: `Bearer ${token}`}})
         .then((response)=>{
             setData(response.data.products)
-           console.log(response.data)
+           console.log(response.data.products[1]._id)
             
         })
         .catch((err)=>{
             console.log(err)
         })
         }
-    },[token ] )
+    },[token , change] )
+
+
+    const deleteItem = (prductID)=>{
+        axios.delete(`http://localhost:5000/cart/cart/${userId}/${prductID} `, {headers:{Authorization: `Bearer ${token}`}})
+        .then((response)=>{
+           const newcart = data.filter((element)=>{
+            return element.products._id !== prductID
+           })
+           setData(newcart)
+            
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+        }
 
 
 
@@ -33,7 +49,7 @@ return <div>
 
 {data.map((elem,i)=>{
            return (
-            <div  onClick={()=>{navigate(`/${elem.product._id}`) }} key={i} className="Container">
+            <div   key={i} className="Container">
                 <div className="imgDiv">
                     <img className="img" src={elem.product.image} alt="img" />
                  </div>
@@ -42,8 +58,8 @@ return <div>
                    <hr></hr>
                     <h4>{elem.product.description}</h4>
                     <span><h2>Price : {elem.product.price}$</h2> </span>
-                    <button> Remove From Cart</button>
-                    <button> Remove From Cart</button>
+                    <button onClick={()=>{deleteItem(elem.product._id) ; setChange(!change) }} > Remove From Cart</button>   
+                    <button > add to fav</button>
                     
                     </div>
                     </div>
