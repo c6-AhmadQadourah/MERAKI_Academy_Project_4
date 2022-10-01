@@ -21,7 +21,8 @@ const Cart = () => {
         })
         .then((response) => {
           setData(response.data.products);
-          console.log(response.data.products[1]._id);
+          console.log(response.data.products);
+         
         })
         .catch((err) => {
           console.log(err);

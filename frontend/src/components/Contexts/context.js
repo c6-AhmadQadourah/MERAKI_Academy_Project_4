@@ -11,6 +11,8 @@ const AuthProvider = (props) => {
     const [token, setToken] = useState("");
     const [isAdmin, setIsAdmin] = useState(false)
     const [originalData, setOriginalData] = useState("")
+
+
 console.log(isAdmin)
  
 
@@ -56,7 +58,8 @@ console.log(token)
     setIsAdmin,
     isAdmin,
     setOriginalData,
-    originalData
+    originalData,
+   
   };
 
   return (

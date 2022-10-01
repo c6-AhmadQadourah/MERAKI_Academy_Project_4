@@ -51,6 +51,7 @@ const navigate=useNavigate()
     
 
     return <div className="bigbig">
+        {/* ------- category-------- */}
         <div className="cate">
         <h2> Categories</h2>
 <hr></hr>
@@ -61,6 +62,7 @@ const navigate=useNavigate()
             </div>
         }) }
         </div>
+        {/* ------- category End -------- */}
 
         <div  className="bigContainer"> 
         {data.map((elem,i)=>{
