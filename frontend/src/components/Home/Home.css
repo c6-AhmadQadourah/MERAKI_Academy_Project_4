@@ -35,3 +35,13 @@
 
 
 
+.cate {
+border: 5px solid black; 
+position: relative;
+top: 10px;
+border-radius: 10px;
+ }
+.bigbig{
+    display: grid;
+    grid-template-columns: .3fr 3fr;
+}

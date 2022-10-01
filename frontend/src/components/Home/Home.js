@@ -9,6 +9,8 @@ import "./Home.css"
 
 const Home = ({setId})=>{
     const [data , setData]=useState([])
+    const [category , setCategory]=useState([])
+
     const { token  } = useContext(AuthContext);
     const { setOriginalData  } = useContext(AuthContext);
    
@@ -31,13 +33,39 @@ const navigate=useNavigate()
             }
         },[token ] )
 
-        
+        useEffect(()=>{
+            if (token){
+            axios.get("http://localhost:5000/products/category" , {headers:{Authorization: `Bearer ${token}`}})
+            .then((response)=>{
+                console.log(response.data.Comment)
+                setCategory(response.data.Comment)
+             
+               
+                
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+            }
+        },[token ] )
     
 
-    return <div className="bigContainer">
+    return <div className="bigbig">
+        <div className="cate">
+        <h2> Categories</h2>
+<hr></hr>
+         { category.map((elem,i)=>{
+            return <div > 
+                <h4> {elem.industry}</h4>
+                <hr></hr>
+            </div>
+        }) }
+        </div>
 
+        <div  className="bigContainer"> 
         {data.map((elem,i)=>{
            return (
+            
             <div  onClick={()=>{navigate(`/${elem._id}`) }} key={i} className="Container">
                 <div className="imgDiv">
                     <img className="img" src={elem.image} alt="img" />
@@ -52,6 +80,7 @@ const navigate=useNavigate()
                     </div>
           )
         })}
+        </div>
     </div>
 }
 

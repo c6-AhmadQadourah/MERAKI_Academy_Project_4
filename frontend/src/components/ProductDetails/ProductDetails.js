@@ -27,7 +27,7 @@ const getCategory =(category1)=>{
         .then((response) => {
           setData1(response.data.product);
           
-        
+       
         })
         .catch((err) => {
           console.log(err);
