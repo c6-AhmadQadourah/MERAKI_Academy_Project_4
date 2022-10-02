@@ -1,5 +1,6 @@
 const express = require("express");
 const { default: mongoose } = require("mongoose");
+const { db } = require("../models/cartSchema");
 
 const CartModel = require("../models/cartSchema");
 
@@ -179,7 +180,6 @@ const deleteItemsforuser = (req, res) => {
       });
     });
 };
-
 
 
 module.exports = {

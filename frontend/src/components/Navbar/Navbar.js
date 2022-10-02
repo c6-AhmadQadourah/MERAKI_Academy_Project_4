@@ -1,6 +1,8 @@
 import { Routes, Route, Link ,useNavigate } from "react-router-dom";
 import React from "react";
-import logo from './cart.png'
+
+import logo2 from "./cart.svg"
+
 import {useEffect , useState ,useContext, createContext} from "react"
 import axios from "axios";
 import { AuthContext } from "../Contexts/context";
@@ -36,7 +38,7 @@ const {logout , isAdmin ,isLoggedIn}=  useContext(AuthContext);
   }
 
 
-  
+
 
   return( 
   <div  className="navigation" style={{ display: "flex", gap: "50px" }}>
@@ -60,7 +62,10 @@ const {logout , isAdmin ,isLoggedIn}=  useContext(AuthContext);
 <div className="c">
 
   <span className="numCart">0</span>
-<img className="cart" src={logo} alt="logo" />
+<img className="cart" src={logo2} alt="logo" />
+
+
+
 </div>
 <p className="pCart">Cart</p>
 </div>}
