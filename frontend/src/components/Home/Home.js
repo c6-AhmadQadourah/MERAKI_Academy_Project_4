@@ -17,6 +17,7 @@ const Home = ({setId})=>{
 const navigate=useNavigate()
    
         useEffect(()=>{
+           
             if (token){
             axios.get("http://localhost:5000/products" , {headers:{Authorization: `Bearer ${token}`}})
             .then((response)=>{
@@ -50,10 +51,12 @@ const navigate=useNavigate()
     
 
     return <>
+    {/* try */}
+
     <div className="slideShow">
-<Slideshow/>
-    </div>
-    
+        <Slideshow/>
+</div>
+    {/* try end */}
     <div className="bigbig">
         {/* ------- category-------- */}
         <div className="cate">

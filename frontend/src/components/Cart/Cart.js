@@ -12,7 +12,7 @@ const Cart = () => {
   // const [prductID, setProductID]=useState(0)
   const [change, setChange] = useState(false);
   const userId = localStorage.getItem("userId");
-  const [quantity, setQuantity] = useState(Number);
+  let [quantity, setQuantity] = useState(0);
   const [itemID, setItemID] = useState("");
   const [total, setTotal] = useState(0);
 
@@ -28,11 +28,7 @@ const Cart = () => {
           setData(response.data.products);
 
           
-           
-            for(let i=0 ; i <= data.length ; i++){
-              const total1 = data[i].product.price
-              setTotal(total1)
-            }
+       
           
          
           console.log(response.data.products);
@@ -64,14 +60,14 @@ const Cart = () => {
     axios
       .put(`http://localhost:5000/cart/${itemID}`, body)
       .then((response) => {
-        const newCart =data.map((elem)=>{
+        const newq =data.map((elem)=>{
           if (elem._id == itemID){
             elem.quantity = response.data.result.quantity
           }
-        setQuantity(quantity)
           return elem
         })
-        setChange(!change)
+        setQuantity(quantity)
+
         console.log(response.data.result.quantity);
       })
       .catch((err) => {
@@ -79,12 +75,6 @@ const Cart = () => {
       });
   };
 
-const sum = (a)=>{
-  for(let i=0 ; i <= a.length ; i++){
-    const total1 = a[i]
-    setTotal(total1)
-  }
-}
 
   return (
     <div>
@@ -101,7 +91,6 @@ const sum = (a)=>{
               <span>
                 <h2>Price : {elem.product.price}$</h2>{" "}
               </span>
-
               <button
                 onClick={() => {
                   deleteItem(elem.product._id);
@@ -116,7 +105,7 @@ const sum = (a)=>{
                 <p>Quantity</p>
                 <button
                   className="qb"
-                  onClick={() => {
+          onClick={() => { 
                     setQuantity( quantity--);updateQuantity(elem._id);
                   }}
                 >
@@ -130,7 +119,8 @@ const sum = (a)=>{
                 <button
                   className="qb"
                   onClick={() => {
-                    setQuantity(elem.quantity++); updateQuantity(elem._id);
+                    setQuantity(quantity++); updateQuantity(elem._id);
+                    
                   }}
                 >
                   +
