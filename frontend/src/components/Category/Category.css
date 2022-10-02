@@ -1,0 +1,7 @@
+.cate {
+    border: 5px solid black; 
+    position: relative;
+    top: 10px;
+    border-radius: 10px;
+    height: 320px;
+     }

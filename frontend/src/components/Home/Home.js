@@ -5,25 +5,26 @@ import {AuthContext} from "../Contexts/context";
 import {Navigate, useNavigate} from "react-router-dom"
 import "./Home.css"
 import Slideshow from "../SlideShow/SlideShow";
+import Categories from "../Category/Category";
 
-const Home = ({setId})=>{
+const Home = ({setId })=>{
     const [data , setData]=useState([])
-    const [category , setCategory]=useState([])
+   
 
     const { token  } = useContext(AuthContext);
-    const { setOriginalData  } = useContext(AuthContext);
+    const { setOriginalData , isAdmin  } = useContext(AuthContext);
    
-    let {id}=useParams()
 const navigate=useNavigate()
    
         useEffect(()=>{
            
             if (token){
-            axios.get("http://localhost:5000/products" , {headers:{Authorization: `Bearer ${token}`}})
+     axios.get("http://localhost:5000/products" , {headers:{Authorization: `Bearer ${token}`}})
             .then((response)=>{
                 console.log(response.data.products)
                 setData(response.data.products)
                 setOriginalData(response.data.products)
+                
                 //setLoggedUser(response.data.userId)
                 
             })
@@ -31,23 +32,28 @@ const navigate=useNavigate()
                 console.log(err)
             })
             }
+        
         },[token ] )
 
-        useEffect(()=>{
-            if (token){
-            axios.get("http://localhost:5000/products/category" , {headers:{Authorization: `Bearer ${token}`}})
-            .then((response)=>{
-                console.log(response.data.Comment)
-                setCategory(response.data.Comment)
-             
-               
+        const deleteProduct = (prductID)=>{
+
+            axios
+              .delete(`http://localhost:5000/products/${prductID} `, {
+                headers: { Authorization: `Bearer ${token}` },
+              })
+              .then((response) => {
                 
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
-            }
-        },[token ] )
+                const newData = data.filter((element) => {
+                    console.log(data)
+                  return element._id !== prductID;
+                });
+               setData(newData)
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+        }
+
     
 
     return <>
@@ -59,35 +65,31 @@ const navigate=useNavigate()
     {/* try end */}
     <div className="bigbig">
         {/* ------- category-------- */}
-        <div className="cate">
-        <h2> Categories</h2>
-<hr></hr>
-         { category.map((elem,i)=>{
-            return <div > 
-                <h4> {elem.industry}</h4>
-                <hr></hr>
-            </div>
-        }) }
-        </div>
+        <Categories setData={setData} />
         {/* ------- category End -------- */}
 
         <div  className="bigContainer"> 
         {data.map((elem,i)=>{
            return (
             
-            <div  onClick={()=>{navigate(`/${elem._id}`) }} key={i} className="Container">
+            <div   key={i} className="Container">
           
                 <div className="imgDiv">
                     <img className="img" src={elem.image} alt="img" />
+                    {isAdmin&& <div>
+                     <button onClick={()=>{deleteProduct(elem._id)}} > Delete Product</button>
+                <button> Update Product</button>
+                    </div>}
                  </div>
                  <div className="itemContainer">
-                   <h1>{elem.title}</h1>
+                   <h1 className="title" onClick={()=>{navigate(`/${elem._id}`) }}>{elem.title}</h1>
                    <hr></hr>
                     <h4>{elem.description}</h4>
-                    <span><h2>Price : {elem.price}$</h2> </span>
+                     <span><h2>Price : {elem.price}$</h2> </span>
+                    </div>
                     
                     </div>
-                    </div>
+                    
           )
         })}
         </div>

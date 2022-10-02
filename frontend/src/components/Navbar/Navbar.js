@@ -42,7 +42,7 @@ const {logout , isAdmin ,isLoggedIn}=  useContext(AuthContext);
 
   return( 
   <div  className="navigation" style={{ display: "flex", gap: "50px" }}>
-{isLoggedIn && <button className="button"> <Link className="link" to="/"> Home </Link></button>}
+{isLoggedIn && <button className="button" > <Link className="link" to="/"> Home </Link></button>}
  
  
  {/*------------ search Div------- */}
@@ -52,7 +52,7 @@ const {logout , isAdmin ,isLoggedIn}=  useContext(AuthContext);
 </div>}
  {/*------------ search Div End------- */}
 
- {isAdmin&& <button className="button"  >Admin Panel</button> }
+ {isAdmin&& <button className="button"  onClick={()=>{navigate("/admin")}} >Admin Panel</button> }
 
 
 
