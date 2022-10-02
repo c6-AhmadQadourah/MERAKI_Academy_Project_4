@@ -25,7 +25,7 @@ cartRouter.post(
 cartRouter.get("/", authentication, authorization("BROWSE"), getAllItemsInCart);
 cartRouter.delete("/:id",authentication, deleteItemByIdInCart);
 cartRouter.delete("/product/:id",authentication, deleteItemByProductInCart);
-cartRouter.put("/:id",authentication, updateCart);
+cartRouter.put("/:id", updateCart);
 cartRouter.get("/:id",authentication, getAllUserItems);
 cartRouter.delete("/cart/:id/:product",authentication, deleteItemsforuser);
 

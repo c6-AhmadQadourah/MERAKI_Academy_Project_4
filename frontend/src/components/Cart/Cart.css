@@ -13,3 +13,23 @@
 }
 .q{
 font-size: x-large;}
+
+.order{
+    display: flex;
+    justify-content: center;
+}
+
+.checkOut{
+    border-radius: 15px;
+    background-color: rgb(137, 137, 243);
+    border: none;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    padding: 15px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 30px;
+}

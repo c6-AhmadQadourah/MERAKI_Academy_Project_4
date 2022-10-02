@@ -5,29 +5,37 @@ import { AuthContext } from "../Contexts/context";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./Cart.css";
 
-
-
-const Cart = ( ) => {
+const Cart = () => {
   const { token } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   // const [prductID, setProductID]=useState(0)
   const [change, setChange] = useState(false);
   const userId = localStorage.getItem("userId");
-  const [quantity, setQuantity] = useState(0)
-  
-  
+  const [quantity, setQuantity] = useState(Number);
+  const [itemID, setItemID] = useState("");
+  const [total, setTotal] = useState(0);
 
-  useEffect(() => {
+
+
+  useEffect( () => {
     if (token) {
-      axios
+        axios
         .get(`http://localhost:5000/cart/${userId} `, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
           setData(response.data.products);
-          console.log(response.data.products);
+
+          
+           
+            for(let i=0 ; i <= data.length ; i++){
+              const total1 = data[i].product.price
+              setTotal(total1)
+            }
+          
          
+          console.log(response.data.products);
         })
         .catch((err) => {
           console.log(err);
@@ -51,19 +59,32 @@ const Cart = ( ) => {
       });
   };
 
-  const updateQuantity =(id)=>{
+  const updateQuantity = (itemID) => {
+    const body = { quantity };
+    axios
+      .put(`http://localhost:5000/cart/${itemID}`, body)
+      .then((response) => {
+        const newCart =data.map((elem)=>{
+          if (elem._id == itemID){
+            elem.quantity = response.data.result.quantity
+          }
+        setQuantity(quantity)
+          return elem
+        })
+        setChange(!change)
+        console.log(response.data.result.quantity);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    const body = {quantity}
-    axios.put(`http://localhost:5000/cart/${id}` , body)
-    .then((response) => {
-     
-      console.log(response);
-     
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+const sum = (a)=>{
+  for(let i=0 ; i <= a.length ; i++){
+    const total1 = a[i]
+    setTotal(total1)
   }
+}
 
   return (
     <div>
@@ -91,16 +112,44 @@ const Cart = ( ) => {
                 Remove From Cart
               </button>
               <button> add to fav</button>
-              <div className="Q"> 
+              <div className="Q">
                 <p>Quantity</p>
-                <button className="qb" >-</button>   <span className="q" onChange={(e)=>{setQuantity(e.target.value)}}>{elem.quantity}   </span> <button className="qb" onClick={()=>{setQuantity(quantity=> quantity+1) }}>+</button>
-                <button onClick={()=>{updateQuantity(elem._id)}} >test</button>
-              </div>
+                <button
+                  className="qb"
+                  onClick={() => {
+                    setQuantity( quantity--);updateQuantity(elem._id);
+                  }}
+                >
+                  -
+                </button>
+                <span
+                  className="q" >
 
+                  {elem.quantity}
+                </span>
+                <button
+                  className="qb"
+                  onClick={() => {
+                    setQuantity(elem.quantity++); updateQuantity(elem._id);
+                  }}
+                >
+                  +
+                </button>
+                
+              </div>
             </div>
           </div>
         );
       })}
+{/* ------------- Order ----------*/}
+      <div className="order" > 
+        
+      <h1> Subtotal  ({data.length} Items) :  { data
+      .map((elem) => elem.product.price)
+    .reduce((prev, curr) => prev + curr, 0)}$  </h1>
+
+    <button className="checkOut"> Proceed To Checkout</button>
+      </div>
     </div>
   );
 };

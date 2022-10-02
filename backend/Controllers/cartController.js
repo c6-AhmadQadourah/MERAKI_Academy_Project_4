@@ -115,6 +115,7 @@ const updateCart = (req, res) => {
       res.status(200).json({
         success: true,
         message: `Item Updated`,
+        result: result
       });
     })
     .catch((err) => {
