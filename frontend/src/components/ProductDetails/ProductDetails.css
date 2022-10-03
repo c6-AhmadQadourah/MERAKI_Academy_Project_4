@@ -52,3 +52,8 @@ height:  500px;
 .commentsDiv{
   border: black solid 3px;
 }
+.New {
+  height: 30px;
+    font-size: large;
+    width: 300px;
+}

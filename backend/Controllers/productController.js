@@ -98,6 +98,7 @@ const updateProduct = (req,res)=>{
     res.status(200).json({
       success: true,
       message: `Product Updated`,
+      product :result
     });
   })
   .catch((err) => {

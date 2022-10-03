@@ -76,10 +76,13 @@ const navigate=useNavigate()
           
                 <div className="imgDiv">
                     <img className="img" src={elem.image} alt="img" />
+                    {/*admin*/}
                     {isAdmin&& <div>
                      <button onClick={()=>{deleteProduct(elem._id)}} > Delete Product</button>
                 <button> Update Product</button>
                     </div>}
+                    {/*admin end*/}
+
                  </div>
                  <div className="itemContainer">
                    <h1 className="title" onClick={()=>{navigate(`/${elem._id}`) }}>{elem.title}</h1>

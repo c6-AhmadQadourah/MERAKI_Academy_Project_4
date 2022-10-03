@@ -7,14 +7,21 @@ import "./ProductDetails.css";
 
 const ProductDetails = (  ) => {
   const [data, setData] = useState([]);
-  const { token } = useContext(AuthContext);
+  const { token , isAdmin} = useContext(AuthContext);
   const [data1, setData1] = useState([]);
 const [change, setchange] = useState(false)
 const [comments, setComments] = useState([])
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [product, setProduct] = useState(0)
+
+  //----------------------Update Product -----------------------//
+  const [update, setUpdate] = useState(false)
+
+  const [newTitle, setNewTitle] = useState("")
+  const [newDescription, setNewDescription] = useState("")
+  const [newPrice, setNewPrice] = useState(0)
+  const [newImage, setNewImage] = useState(null)
 
 
 
@@ -46,10 +53,10 @@ const getCategory =(category1)=>{
         .then((response) => {
           setData(response.data.product);
           setComments(response.data.product.comments);
-          
           setProduct(response.data.product._id)
-         
           getCategory(response.data.product.category._id)
+          
+        
           
           
           
@@ -79,7 +86,24 @@ axios.post ("http://localhost:5000/cart" , body , {
   })
 }
  
+const updateProduct =()=>{
 
+axios
+.put(`http://localhost:5000/products/${id}`, {title :newTitle , description: newDescription ,  image: newImage  , price : newPrice} , {
+  headers: { Authorization: `Bearer ${token}` },
+})
+.then((response) => {
+if(!newImage){
+  setNewImage (response.data.product.image) 
+}
+
+console.log(response.data.product)
+})
+.catch((err) => {
+  console.log(err);
+});
+  
+}
 
 
 
@@ -88,15 +112,19 @@ axios.post ("http://localhost:5000/cart" , body , {
       
       <div className="ContainerDetails">
         <div className="imgDivDetails">
-          <img className="imgDetails" src={data.image} alt="img" />
+          {update?null : <img className="imgDetails" src={data.image} alt="img" />}
+          {update&&  <input className="New" placeholder="Paste Your Image URL HERE !"  onChange={(e)=>{setNewImage(e.target.value)}} />}
         </div>
         <span className="itemContainerDetails">
-          <h1>{data.title}</h1>
+        {update?null : <h1>{data.title}</h1>}
+          {update&& <input className="New" placeholder="Write Your New Title HERE !" onChange={(e)=>{setNewTitle(e.target.value)}} />}
           <hr></hr>
-          <h4>{data.description}</h4>
+          {update?null :  <h4>{data.description}</h4>}
+          {update&& <input className="New" placeholder="Write Your New Description HERE !" onChange={(e)=>{setNewDescription(e.target.value)}} />}
           <hr></hr>
 
-          <h2>Price : {data.price}$ </h2>
+          {update?null :<h2>Price : {data.price}$ </h2>}
+          {update&& <input className="New" placeholder="Write Your New Price HERE !" onChange={(e)=>{setNewPrice(e.target.value)}} />}
           <hr></hr>
 
           <div className="Buttons">
@@ -109,11 +137,18 @@ axios.post ("http://localhost:5000/cart" , body , {
             return <div className="commentsDiv">
               <div >
               <p><span>{elem.commenter.firstName}</span> : <span>{elem.comment}</span>   </p> 
+
               </div>
            <textarea></textarea>
             </div>
+            
           }) }
         </span>
+        {isAdmin&& <div>
+                    
+                <button onClick={()=>{setUpdate(!update)}}> Update Product</button>
+                <button onClick={()=>{ updateProduct() ; setUpdate(!update)}}> Finish Update !</button>
+                    </div>}
       </div>
       {/*--------------------- Suggested Products-------------------------*/}
       <h1> Other Products You May Like !</h1>
@@ -124,7 +159,8 @@ axios.post ("http://localhost:5000/cart" , body , {
         <div className="Container" onClick={()=>{navigate(`/${elem._id}`) ; setchange(!change)  }} key={i}>
 
            <div className="imgDiv">
-                    <img className="img" src={elem.image} alt="img" />
+                    <img className="img" src={elem.image} alt="img" /> 
+
                  </div>
                  <div className="itemContainer">
                    <h1>{elem.title}</h1>
