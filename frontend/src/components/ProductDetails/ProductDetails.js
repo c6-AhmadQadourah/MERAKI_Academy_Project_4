@@ -7,7 +7,7 @@ import "./ProductDetails.css";
 
 const ProductDetails = (  ) => {
   const [data, setData] = useState([]);
-  const { token , isAdmin} = useContext(AuthContext);
+  const { token , isAdmin , setChange1 ,change1} = useContext(AuthContext);
   const [data1, setData1] = useState([]);
 const [change, setchange] = useState(false)
 const [comments, setComments] = useState([])
@@ -77,7 +77,7 @@ axios.post ("http://localhost:5000/cart" , body , {
   headers: { Authorization: `Bearer ${token}`} })
   .then((response)=>{
     console.log(response)
-    
+    setChange1(!change1)
    
   })
   .catch((err)=>{

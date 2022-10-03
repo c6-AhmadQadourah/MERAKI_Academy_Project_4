@@ -9,7 +9,7 @@ import "./Category.css"
 const Categories = ({setData})=>{
     const [category , setCategory]=useState([])
     const { token  } = useContext(AuthContext);
-    const { originalData   } = useContext(AuthContext);
+    const { originalData ,setOriginalData ,change1 ,setChange1 } = useContext(AuthContext);
 
 
 
@@ -36,7 +36,7 @@ const filter=(id)=>{
     axios.get(`http://localhost:5000/products/category/${id}`)
     .then((response)=>{
         console.log(response.data)
-       setData(response.data.product)
+       setOriginalData(response.data.product)
      
        
         
@@ -50,7 +50,7 @@ return <div className="cate">
    
 <h2> Categories</h2>
 <hr></hr>
-<h4 onClick={()=>{setData(originalData)}} > All Categories </h4>
+<h4 onClick={()=>{setChange1(!change1)}} > All Categories </h4>
         <hr></hr>
  { category.map((elem,i)=>{
     return <div > 

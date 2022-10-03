@@ -6,7 +6,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = () => {
-  const { token } = useContext(AuthContext);
+  const { token , setChange1 , change1} = useContext(AuthContext);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   // const [prductID, setProductID]=useState(0)
@@ -49,6 +49,7 @@ const Cart = () => {
           return element.products._id !== prductID;
         });
         setData(newcart);
+        setChange1(!change1)
       })
       .catch((err) => {
         console.log(err);

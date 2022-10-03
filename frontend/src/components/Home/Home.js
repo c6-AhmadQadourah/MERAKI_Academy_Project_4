@@ -11,8 +11,8 @@ const Home = ({setId  })=>{
     const [data , setData]=useState([])
    
 
-    const { token  } = useContext(AuthContext);
-    const { setOriginalData , isAdmin  } = useContext(AuthContext);
+    const { token ,change1  } = useContext(AuthContext);
+    const { setOriginalData , isAdmin ,originalData  } = useContext(AuthContext);
    
 const navigate=useNavigate()
    
@@ -33,7 +33,7 @@ const navigate=useNavigate()
             })
             }
         
-        },[token ] )
+        },[token ,change1] )
 
         const deleteProduct = (prductID)=>{
 
@@ -69,7 +69,7 @@ const navigate=useNavigate()
         {/* ------- category End -------- */}
 
         <div  className="bigContainer"> 
-        {data.map((elem,i)=>{
+        { originalData?.map((elem,i)=>{
            return (
             
             <div   key={i} className="Container">

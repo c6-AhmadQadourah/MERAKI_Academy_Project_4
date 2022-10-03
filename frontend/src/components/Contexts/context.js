@@ -10,7 +10,8 @@ const AuthProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [token, setToken] = useState("");
     const [isAdmin, setIsAdmin] = useState(false)
-    const [originalData, setOriginalData] = useState("")
+    const [originalData, setOriginalData] = useState(null)
+    const [change1, setChange1] = useState(false)
 
 
 console.log(isAdmin)
@@ -59,7 +60,8 @@ console.log(token)
     isAdmin,
     setOriginalData,
     originalData,
-   
+    setChange1,
+    change1
   };
 
   return (

@@ -12,10 +12,11 @@ import ("./Navbar.css")
 
 const Navigation = ()=>{
 
-
+const [cart ,setCart]=useState([])
 const [search1 ,setSearch1] = useState("")
   const navigate = useNavigate()
-const {logout , isAdmin ,isLoggedIn , originalData}=  useContext(AuthContext);
+const {logout , isAdmin ,isLoggedIn , setOriginalData ,token  , change1, setChange1}=  useContext(AuthContext);
+const userId = localStorage.getItem("userId");
 
 
 
@@ -25,9 +26,8 @@ const {logout , isAdmin ,isLoggedIn , originalData}=  useContext(AuthContext);
     .then((result)=>{
       
       //setData(result.data)
-        console.log(result.data)
-        
-        
+        console.log(result.data.Products)
+        setOriginalData(result.data.Products)
     })
     .catch((err)=>{
         console.log(err)
@@ -39,11 +39,33 @@ const {logout , isAdmin ,isLoggedIn , originalData}=  useContext(AuthContext);
   }
 
 
+  useEffect( () => {
+    if (token) {
+        axios
+        .get(`http://localhost:5000/cart/${userId} `, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+  setCart(response.data.products);
+  
+
+          
+       
+          
+         
+          console.log(response.data.products);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [token , change1]);
+
 
 
   return( 
   <div  className="navigation" style={{ display: "flex", gap: "50px" }}>
-{isLoggedIn && <button className="button" > <Link className="link" to="/"> Home </Link></button>}
+{isLoggedIn && <button onClick={()=>{setChange1(!change1)}} className="button" > <Link className="link" to="/"> Home </Link></button>}
  
  
  {/*------------ search Div------- */}
@@ -62,7 +84,7 @@ const {logout , isAdmin ,isLoggedIn , originalData}=  useContext(AuthContext);
 {isLoggedIn&& <div onClick={()=>{navigate("/cart")}} className="bigCart">
 <div className="c">
 
-  <span className="numCart">0</span>
+  <span className="numCart">{cart.length}</span>
 <img className="cart" src={logo2} alt="logo" />
 
 

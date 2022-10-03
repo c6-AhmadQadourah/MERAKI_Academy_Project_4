@@ -1,8 +1,11 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext ,createContext } from "react";
 import axios, { Axios } from "axios";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../Contexts/context";
 import { Navigate, useNavigate } from "react-router-dom";
+
+
+
 
 const NewProduct = ()=>{
 
@@ -36,6 +39,7 @@ const NewProduct = ()=>{
 
     return(
         <div> 
+         
             <span> Image</span>
             <input className="New" placeholder="Paste Your Image URL HERE !"  onChange={(e)=>{setImage(e.target.value)}} />
 
