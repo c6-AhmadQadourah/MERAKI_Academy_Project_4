@@ -9,6 +9,10 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Cart from "./components/Cart/Cart";
 import Admin from "./components/Admin_Panel/Admin";
 import NewProduct from "./components/NewProduct/NewProduct";
+import Test from "./components/test/Test";
+
+
+
 function App() {
  const [change , setChange]= useState(false)
  
@@ -29,6 +33,7 @@ function App() {
       
       <Route path = "/:id" element={<ProductDetails   />}  />
       <Route path = "/cart" element={<Cart   />}  />
+      <Route path = "/test" element={<Test   />}  />
     
      <Route path = "/login" element={ <Login  />}  />
      <Route path = "/register" element={<Register/>}  />

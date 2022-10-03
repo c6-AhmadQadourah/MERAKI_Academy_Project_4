@@ -48,6 +48,8 @@ const navigate=useNavigate()
                   return element._id !== prductID;
                 });
                setData(newData)
+               setOriginalData(newData)
+
               })
               .catch((err) => {
                 console.log(err);
