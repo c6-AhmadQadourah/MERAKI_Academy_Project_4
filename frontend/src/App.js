@@ -10,7 +10,7 @@ import Cart from "./components/Cart/Cart";
 import Admin from "./components/Admin_Panel/Admin";
 import NewProduct from "./components/NewProduct/NewProduct";
 import Test from "./components/test/Test";
-
+import Google from "./components/googleTest/Google";
 
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
       <Route path = "/:id" element={<ProductDetails   />}  />
       <Route path = "/cart" element={<Cart   />}  />
       <Route path = "/test" element={<Test   />}  />
+      <Route path = "/google" element={<Google   />}  />
     
      <Route path = "/login" element={ <Login  />}  />
      <Route path = "/register" element={<Register/>}  />
