@@ -7,7 +7,7 @@ import "./Home.css"
 import Slideshow from "../SlideShow/SlideShow";
 import Categories from "../Category/Category";
 
-const Home = ({setId })=>{
+const Home = ({setId  })=>{
     const [data , setData]=useState([])
    
 
@@ -79,7 +79,7 @@ const navigate=useNavigate()
                     {/*admin*/}
                     {isAdmin&& <div>
                      <button onClick={()=>{deleteProduct(elem._id)}} > Delete Product</button>
-                <button> Update Product</button>
+                
                     </div>}
                     {/*admin end*/}
 

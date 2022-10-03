@@ -15,7 +15,7 @@ const Navigation = ()=>{
 
 const [search1 ,setSearch1] = useState("")
   const navigate = useNavigate()
-const {logout , isAdmin ,isLoggedIn}=  useContext(AuthContext);
+const {logout , isAdmin ,isLoggedIn , originalData}=  useContext(AuthContext);
 
 
 
@@ -26,6 +26,7 @@ const {logout , isAdmin ,isLoggedIn}=  useContext(AuthContext);
       
       //setData(result.data)
         console.log(result.data)
+        
         
     })
     .catch((err)=>{

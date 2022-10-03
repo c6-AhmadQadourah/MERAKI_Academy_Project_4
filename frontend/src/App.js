@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Cart from "./components/Cart/Cart";
 import Admin from "./components/Admin_Panel/Admin";
+import NewProduct from "./components/NewProduct/NewProduct";
 function App() {
  const [change , setChange]= useState(false)
  
@@ -23,6 +24,8 @@ function App() {
       <Routes>
       <Route path = "/" element={<Home  /> }  />
       <Route path = "/admin" element={<Admin  /> }  />
+      <Route path = "/admin/new" element={<NewProduct /> }  />
+     
       
       <Route path = "/:id" element={<ProductDetails   />}  />
       <Route path = "/cart" element={<Cart   />}  />

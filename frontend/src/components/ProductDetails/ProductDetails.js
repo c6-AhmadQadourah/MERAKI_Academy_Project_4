@@ -21,7 +21,7 @@ const [comments, setComments] = useState([])
   const [newTitle, setNewTitle] = useState("")
   const [newDescription, setNewDescription] = useState("")
   const [newPrice, setNewPrice] = useState(0)
-  const [newImage, setNewImage] = useState(null)
+  const [newImage, setNewImage] = useState("")
 
 
 
@@ -88,15 +88,23 @@ axios.post ("http://localhost:5000/cart" , body , {
  
 const updateProduct =()=>{
 
+  const body = {}
+
+if(newTitle !==""){
+  body.newTitle=newTitle}
+  if(newDescription !==""){
+    body.newDescription=newDescription}
+    if(newImage !==""){
+      body.newImage=newImage}
+      if(newPrice !==""){
+        body.newPrice=newPrice}
+
 axios
-.put(`http://localhost:5000/products/${id}`, {title :newTitle , description: newDescription ,  image: newImage  , price : newPrice} , {
+.put(`http://localhost:5000/products/${id}`, {title :body.newTitle , description: body.newDescription ,  image: body.newImage  , price : body.newPrice} , {
   headers: { Authorization: `Bearer ${token}` },
 })
 .then((response) => {
-if(!newImage){
-  setNewImage (response.data.product.image) 
-}
-
+setchange(!change)
 console.log(response.data.product)
 })
 .catch((err) => {
