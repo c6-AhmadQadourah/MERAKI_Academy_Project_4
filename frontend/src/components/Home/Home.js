@@ -16,7 +16,7 @@ const Home = ({setId  })=>{
    
 const navigate=useNavigate()
 
-
+if(!token){navigate("/login")}
 
         useEffect(()=>{
            
