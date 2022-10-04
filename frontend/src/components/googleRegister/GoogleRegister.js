@@ -6,7 +6,7 @@ import {Navigate, useNavigate} from "react-router-dom"
 import GoogleLogin from "react-google-login"
 
 
-const Google = ()=>{
+const GoogleRegister = ()=>{
   const [givenName ,setGivenName]=useState("")
   const [familyName ,setFamilyName]=useState("")
   const [email , setEmail]=useState("")
@@ -36,12 +36,12 @@ const Google = ()=>{
   const responseGoogle = (response) => {
     console.log(response.profileObj
       );
-setGivenName(response.profileObj.givenName)
-setFamilyName(response.profileObj.familyName)
-setPassword(response.profileObj.googleId)
-setEmail(response.profileObj.email)
-setImage(response.profileObj.imageUrl)
-setName(response.profileObj.name)
+body.givenName= response.profileObj.givenName
+body.familyName= response.profileObj.familyName
+body.password=response.profileObj.googleId
+body.email= response.profileObj.email
+body.image= response.profileObj.imageUrl
+body.name=response.profileObj.name
 
 register() 
   }
@@ -59,4 +59,4 @@ register()
 }
 
 
-export default Google
+export default GoogleRegister

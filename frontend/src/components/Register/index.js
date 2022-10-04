@@ -1,8 +1,12 @@
 import axios from "axios";
 import React from "react";
+import GoogleRegister from "../googleRegister/GoogleRegister"
+
 import {Navigate, useNavigate} from "react-router-dom"
 import { useEffect, useState, useContext } from "react";
 import ("./style.css")
+
+
 
 const Register = () => {
 const [firstName ,setFirstName]=useState("")
@@ -44,6 +48,8 @@ role}
       <span>Password</span>
       <input className="RegInput" onChange={(e)=>{setPassword(e.target.value)}}/>
       <button className="registerButton" onClick={()=>{ register()}} > Register Now !</button>
+
+    <GoogleRegister/>
     </div>
     </div>;
 };
