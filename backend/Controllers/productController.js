@@ -42,6 +42,7 @@ const getAllProducts = (req, res) => {
     ])
 
     .then((result) => {
+
       res.status(201).json({
         success: true,
         message: `All Products`,

@@ -4,7 +4,7 @@ import {Navigate, useNavigate} from "react-router-dom"
 import {AuthContext} from "../Contexts/context";
 import axios from "axios";
 import "./style.css"
-
+//import Google from "../googleTest/Google";
 
 
 

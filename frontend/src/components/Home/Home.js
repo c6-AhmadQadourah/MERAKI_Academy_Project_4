@@ -15,7 +15,9 @@ const Home = ({setId  })=>{
     const { setOriginalData , isAdmin ,originalData  } = useContext(AuthContext);
    
 const navigate=useNavigate()
-   
+
+console.log(process.env.SECRET)
+
         useEffect(()=>{
            
             if (token){
