@@ -49,8 +49,7 @@ localStorage.setItem("userId" , response.data.result._id)
   localStorage.setItem("Admin" , true)
   setIsAdmin(localStorage.getItem("Admin"))
   console.log(isAdmin)
-  console.log("aaa")
-      navigate ("/register")
+      navigate ("/")
   }
     else{ navigate ("/")}
     

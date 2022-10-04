@@ -7,13 +7,14 @@ import GoogleLogin from "react-google-login"
 
 
 const Google = ()=>{
-
- const [loginData, setLoginData] = useState(localStorage.getItem('loginData')?JSON.parse(localStorage.getItem('loginData')):null)
+  console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID)
+ //const [loginData, setLoginData] = useState(localStorage.getItem('loginData')?JSON.parse(localStorage.getItem('loginData')):null)
+    
     const handleFailure = (result) => {
-        alert(result);
+       
         console.log(result)
       };
-
+/*
       const handleLogin = async (googleData) => {
         const res = await fetch('/api/google-login', {
           method: 'POST',
@@ -33,24 +34,20 @@ const handleLogout = () => {
     localStorage.removeItem('loginData');
     setLoginData(null);
   };
+  */
 
     return <div>
-        {
-            loginData? (
-                <div>
-                <h3>You logged in as {loginData.email}</h3>
-                <button onClick={handleLogout}>Logout</button>
-              </div>
-            )
-            : (
-                <GoogleLogin
-                  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                  buttonText="Log in with Google"
-                  onSuccess={handleLogin}
-                  onFailure={handleFailure}
-                  cookiePolicy={'single_host_origin'}
-                ></GoogleLogin>
-              )}
+      
+              <GoogleLogin
+              clientId="105670242284-id2m25ofp3234v7j5772ogvudn00tldr.apps.googleusercontent.com"
+              
+              
+              buttonText="Login"
+              onSuccess={handleFailure}
+              onFailure={handleFailure}
+              cookiePolicy={'single_host_origin'}
+            />
+              
     </div>
 }
 

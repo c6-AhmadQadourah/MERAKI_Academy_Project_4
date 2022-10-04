@@ -15,6 +15,7 @@ const [comments, setComments] = useState([])
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(0)
+  const [price, setPrice] = useState(null)
 
   //----------------------Update Product -----------------------//
   const [update, setUpdate] = useState(false)
@@ -36,7 +37,7 @@ const getCategory =(category1)=>{
         })
         .then((response) => {
           setData1(response.data.product);
-          
+          setPrice(response.data.product.price)
        
         })
         .catch((err) => {
@@ -163,7 +164,7 @@ console.log(response.data.product.likes)
 
           <div className="Buttons">
           <button className="addToCart" onClick={()=>{addToCart()}} > Add To Cart</button>
-          <button className="likeButton" onClick={()=>{setLikes(likes++) ; like(data._id)}} >Like   <img className="logo" src={logo}/> <span>({data.likes})</span> </button>
+          <button className="likeButton" onClick={()=>{setLikes(likes++) ; like(data._id) ; setPrice(price)}} >Like   <img className="logo" src={logo}/> <span>({data.likes})</span> </button>
 
 
           <button className="addToCart"> Add To Favorite</button>
@@ -202,7 +203,7 @@ console.log(response.data.product.likes)
                  <div className="itemContainer">
                    <h1>{elem.title}</h1>
                     <p>{elem.description}</p>
-                    <span>Price : {elem.price}$ </span>
+                    <span>Price : {price}$ </span>
                     
                     </div>
 
