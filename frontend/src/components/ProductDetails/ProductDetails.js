@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../Contexts/context";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./ProductDetails.css";
+import logo from "./logo.svg"
 
 const ProductDetails = (  ) => {
   const [data, setData] = useState([]);
@@ -22,6 +23,8 @@ const [comments, setComments] = useState([])
   const [newDescription, setNewDescription] = useState("")
   const [newPrice, setNewPrice] = useState(0)
   const [newImage, setNewImage] = useState("")
+  let [likes, setLikes] = useState(0)
+
 
 
 
@@ -51,6 +54,7 @@ const getCategory =(category1)=>{
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
+          setLikes(response.data.product.likes)
           setData(response.data.product);
           setComments(response.data.product.comments);
           setProduct(response.data.product._id)
@@ -113,6 +117,26 @@ console.log(response.data.product)
   
 }
 
+const like =(id)=>{
+
+ 
+
+
+
+axios
+.put(`http://localhost:5000/products/${id}`, {likes:likes} , {
+  headers: { Authorization: `Bearer ${token}` },
+})
+.then((response) => {
+setchange(!change)
+
+console.log(response.data.product.likes)
+})
+.catch((err) => {
+  console.log(err);
+});
+  
+}
 
 
   return (
@@ -137,6 +161,9 @@ console.log(response.data.product)
 
           <div className="Buttons">
           <button className="addToCart" onClick={()=>{addToCart()}} > Add To Cart</button>
+          <button className="likeButton" onClick={()=>{setLikes(likes++) ; like(data._id)}} >Like   <img className="logo" src={logo}/> <span>({data.likes})</span> </button>
+
+
           <button className="addToCart"> Add To Favorite</button>
           </div>
       {/*--------------------- Comments-------------------------*/}

@@ -13,7 +13,7 @@ const productRouter = express.Router()
 productRouter.post("/",authentication,authorization("CREATE_PRODUCT"), addNewProduct);
 productRouter.get("/",authentication,authorization("BROWSE"), getAllProducts);
 productRouter.delete("/:id",authentication ,authorization("CREATE_PRODUCT"), deleteProductById);
-productRouter.put("/:id",authentication,authorization("CREATE_PRODUCT"), updateProduct);
+productRouter.put("/:id",authentication,authorization("BROWSE"), updateProduct);
 productRouter.post("/:id/comments",authentication, createNewComment);
 productRouter.post("/category",authentication, createCategory);
 productRouter.get("/category",authentication, getAllCategories);

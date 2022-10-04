@@ -3,7 +3,7 @@ const express = require("express");
 const ProductModel = require("../models/productSchema");
 
 const addNewProduct = (req, res) => {
-  const { title, description, price, image, date , category} = req.body;
+  const { title, description, price, image, date , category , likes} = req.body;
 
   const newProduct = new ProductModel({
     title,
@@ -11,7 +11,8 @@ const addNewProduct = (req, res) => {
     price,
     image,
     date,
-    category
+    category,
+    likes
   });
   newProduct
     .save()

@@ -9,7 +9,8 @@ const productSchema = new mongoose.Schema({
     image : { type : String  },
     date : { type : Date  },
     comments : [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
-    category : { type: mongoose.Schema.Types.ObjectId, ref: "Category" }
+    category : { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
+    likes : {type : Number}
 })
 
 module.exports = mongoose.model("Product" , productSchema)

@@ -57,3 +57,21 @@ height:  500px;
     font-size: large;
     width: 300px;
 }
+
+.logo{
+  width: 25px;
+}
+
+
+.likeButton{
+  display: flex;
+  border-radius: 10px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  align-items: flex-end;
+  font-size: 18px;
+}
