@@ -26,7 +26,6 @@ const Cart = () => {
         })
         .then((response) => {
           setData(response.data.products);
-
           
        
           
@@ -79,7 +78,13 @@ const Cart = () => {
 
   return (
     <div>
-      {data.map((elem, i) => {
+
+      {data.length==0? <div className="empetyCart">
+      
+      <button onClick={()=>{navigate('/')}} > Browse Products now!  </button>
+      <img src="https://dlinkmea.com/images/no-product.png" />
+      </div>
+      :data.map((elem, i) => {
         return (
           <div key={i} className="Container">
             <div className="imgDiv">
