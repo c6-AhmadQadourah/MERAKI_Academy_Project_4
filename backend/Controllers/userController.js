@@ -84,4 +84,29 @@ const deleteUser =(req,res)=>{
   });
 }
 
-module.exports = { createNewUser ,getAllUsers ,deleteUser};
+const updateUser = (req, res) => {
+  const _id = req.params.id;
+  UserModel.findByIdAndUpdate(_id, req.body, { new: true })
+    .then((result) => {
+      if (!result) {
+        return res.status(404).json({
+          success: false,
+          message: `The User: ${_id} is not found`,
+        });
+      }
+      res.status(200).json({
+        success: true,
+        message: `User Updated`,
+        result: result
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err.message,
+      });
+    });
+};
+
+module.exports = { createNewUser ,getAllUsers ,deleteUser , updateUser };
