@@ -5,6 +5,7 @@ import {AuthContext} from "../Contexts/context";
 import axios from "axios";
 import "./style.css"
 //import Google from "../googleTest/Google";
+import Googlelogin from "../googleLogin/GoogleLogin";
 
 
 
@@ -88,8 +89,9 @@ useEffect(() => {
 
 <button className="loginButton"  onClick={()=>{login()}}> Login </button>
 <p>{!iserror ? error : null}</p>
-</div>
+<Googlelogin/>
 
+</div>
 
   </div>;
 };

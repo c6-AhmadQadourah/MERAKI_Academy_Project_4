@@ -15,7 +15,7 @@ const userRouter = require("./Routes/userRouter")
 const productRouter = require("./Routes/productRouter")
 const cartRouter = require("./Routes/cartRouter")
 const loginRouter = require("./Routes/loginRouter")
-
+const googleRouter = require("./Routes/googleRouter")
 
 // Routes Middleware
 app.use("/roles", rolesRouter);
@@ -23,6 +23,7 @@ app.use("/users", userRouter);
 app.use("/products", productRouter);
 app.use("/cart", cartRouter);
 app.use("/login", loginRouter);
+app.use("/google", googleRouter);
 
 
 

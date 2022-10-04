@@ -16,7 +16,7 @@ const Home = ({setId  })=>{
    
 const navigate=useNavigate()
 
-console.log(process.env.SECRET)
+
 
         useEffect(()=>{
            
