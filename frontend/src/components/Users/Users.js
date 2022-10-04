@@ -6,8 +6,9 @@ import {Navigate, useNavigate} from "react-router-dom"
 
 const Users = ()=>{
     const navigate = useNavigate();
-    const { token , isAdmin   } = useContext(AuthContext);
+    const { token , isAdmin ,change1 , setChange1  } = useContext(AuthContext);
     const [data, setData] = useState([])
+    const [newRole , setNewRole]=useState('6330bbb19cea5c5c03a3fb07')
 
     useEffect(()=>{
            
@@ -26,7 +27,7 @@ const Users = ()=>{
         })
         }
     
-    },[token ] )
+    },[token,change1 ] )
 
 
     const deleteUser = (id) => {
@@ -48,6 +49,19 @@ const Users = ()=>{
           });
       };
 
+
+      const updateToAdmin = (id) => {
+       
+        axios
+          .put(`http://localhost:5000/users/${id}`, {role :newRole})
+          .then((response) => {
+            console.log(response)
+            setChange1(!change1)
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
     return <div  className="bigContainer"> 
     { data.map((elem,i)=>{
        return (
@@ -70,7 +84,7 @@ const Users = ()=>{
 
                  <div>
                  <button onClick={()=>{deleteUser(elem._id)}} > Delete User</button>
-                 <button onClick={()=>{}} > Upgrade To Admin</button>
+                 <button onClick={()=>{updateToAdmin(elem._id)}} > Upgrade To Admin</button>
                 </div>
 
                 </div>
