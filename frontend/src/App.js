@@ -11,7 +11,7 @@ import Admin from "./components/Admin_Panel/Admin";
 import NewProduct from "./components/NewProduct/NewProduct";
 import Test from "./components/test/Test";
 import Google from "./components/googleTest/Google";
-
+import Users from "./components/Users/Users";
 
 function App() {
  const [change , setChange]= useState(false)
@@ -35,6 +35,7 @@ function App() {
       <Route path = "/cart" element={<Cart   />}  />
       <Route path = "/test" element={<Test   />}  />
       <Route path = "/google" element={<Google   />}  />
+      <Route path = "/users" element={<Users   />}  />
     
      <Route path = "/login" element={ <Login  />}  />
      <Route path = "/register" element={<Register/>}  />

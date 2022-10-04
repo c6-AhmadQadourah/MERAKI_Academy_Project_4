@@ -15,7 +15,7 @@ const Admin= ()=>{
 
     return <div > 
   <button onClick={()=>{navigate("/admin/new")}} > Add New Product</button>
- <button> Get All Users</button>
+ <button onClick={()=>{navigate("/users")}}> Get All Users</button>
     </div>
 }
 export default Admin

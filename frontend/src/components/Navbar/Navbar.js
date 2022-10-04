@@ -71,7 +71,7 @@ const userId = localStorage.getItem("userId");
  {/*------------ search Div------- */}
  {isLoggedIn&& <div className="searchDiv">
 <input className="searchBar" onChange={(e)=>{setSearch1(e.target.value)}} /> 
-<button className="button" id="searchButton" onClick={()=>{search(search1)}} >search Now</button>
+<button className="button" id="searchButton" onClick={()=> { search(search1)}} >search Now</button>
 </div>}
  {/*------------ search Div End------- */}
 

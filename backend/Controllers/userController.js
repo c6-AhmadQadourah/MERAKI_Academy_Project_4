@@ -55,6 +55,33 @@ UserModel
     err: err.message,
   });
 });
+
 }
 
-module.exports = { createNewUser ,getAllUsers};
+const deleteUser =(req,res)=>{
+
+  const _id =req.params.id
+  UserModel
+  .findByIdAndDelete({_id})
+  .then((result) => {
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: `The User: ${_id} is not found`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `User deleted`,
+    });
+  })
+  .catch((err) => {
+    res.status(500).json({
+      success: false,
+      message: `Server Error`,
+      err: err.message,
+    });
+  });
+}
+
+module.exports = { createNewUser ,getAllUsers ,deleteUser};
