@@ -1,11 +1,14 @@
 .navigation{
     justify-content: space-between;
   display: flex;
-  height: 30px;
-  background-color: #000000;
+  height: 70px;
+  /* background-color: #0c5d8280; */
+  background-image: linear-gradient( rgb(191, 45, 45), rgb(18, 18, 6));
   padding-bottom: 10px;
   padding-top: 5px;
   color: white;
+  align-items: center;
+  /* border: 3px solid black; */
 }
 
 .button{
@@ -24,6 +27,12 @@
 .link{
     text-decoration: none;
     color: rgb(255, 255, 255);
+    font-size: x-large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    align-items: center;
+    cursor: pointer;
+    
 }
 
 .loginReg{
@@ -42,9 +51,8 @@
 }
 .bigCart{
     cursor: pointer;
-
    position: relative;
-   bottom: 20px;
+   bottom: 6px;
    left: 10px;
     display: flex;
     justify-content: space-evenly;
@@ -73,7 +81,13 @@ right : 5px;
     border-radius: 10px;
 }
 
+.searchDiv{
+    display: flex;
 
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
 
 .cart_searchDiv{
     display: flex;
@@ -86,3 +100,18 @@ right : 5px;
     margin-left: 2px;
 }
 
+#home{
+    position: relative;
+    left: 50px;
+}
+
+#logout{
+    position: relative;
+    top:15px
+}
+.i{
+    position: relative;
+    top: 3px;
+    width: 200px;
+    height: 150px;
+}

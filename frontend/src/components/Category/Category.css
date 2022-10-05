@@ -1,7 +1,36 @@
-.cate {
+/* .cate {
     border: 5px solid black; 
     position: relative;
     top: 10px;
     border-radius: 10px;
     height: 320px;
+     } */
+
+     .cate { 
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+        color: white;
+       display: flex;
+       flex-direction: row ;
+       justify-content: center;
+       align-items: center;
+       align-content: center;
+        gap:20px;
+        background-image: linear-gradient( rgb(191, 45, 45), rgba(18, 18, 6, 0.92));
      }
+.category{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  
+}
+
+
+.aa{
+    display: flex;
+    gap: 50px;
+}
+
+.Cname{
+    cursor: pointer;
+}

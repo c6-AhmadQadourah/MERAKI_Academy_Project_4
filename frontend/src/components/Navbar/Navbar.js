@@ -2,6 +2,7 @@ import { Routes, Route, Link ,useNavigate } from "react-router-dom";
 import React from "react";
 
 import logo2 from "./cart.svg"
+import logo1 from "./download.svg"
 
 import {useEffect , useState ,useContext, createContext} from "react"
 import axios from "axios";
@@ -63,9 +64,13 @@ const userId = localStorage.getItem("userId");
 
 
 
-  return( 
+  return( <>
+
+
   <div  className="navigation" style={{ display: "flex", gap: "50px" }}>
-{isLoggedIn && <button onClick={()=>{setChange1(!change1)}} className="button" > <Link className="link" to="/"> Home </Link></button>}
+
+    <img src={logo1}   className="i" />
+{isLoggedIn &&   <Link id="home" onClick={()=>{setChange1(!change1)}}  className="link" to="/"> Home </Link>}
  
  
  {/*------------ search Div------- */}
@@ -75,7 +80,7 @@ const userId = localStorage.getItem("userId");
 </div>}
  {/*------------ search Div End------- */}
 
- {isAdmin&& <button className="button"  onClick={()=>{navigate("/admin")}} >Admin Panel</button> }
+ {isAdmin&& <span className="link"  onClick={()=>{navigate("/admin")}} >Admin Panel</span> }
 
 
 
@@ -96,9 +101,12 @@ const userId = localStorage.getItem("userId");
 
 {/*--------- Login and register div */}
 <div className="loginReg">
-{isLoggedIn? null : <button className="button">  <Link className="link" to="/login"> Login </Link></button>}
-{isLoggedIn? null : <button className="button"> <Link className="link" to="/register"> Register </Link></button>}
-{ isLoggedIn&& <button className="button" onClick={()=>{logout()}} >Logout</button>}
+{isLoggedIn? null : <Link className="link" to="/login"> Login </Link>}
+
+{isLoggedIn? null : <Link className="link" to="/register"> Register </Link>}
+
+
+{ isLoggedIn&& <span id="logout" className="link"  onClick={()=>{logout()}} >Logout</span>}
 </div>
 </div>
 {/*--------- Login and register div  End*/}
@@ -106,6 +114,7 @@ const userId = localStorage.getItem("userId");
  
 
   </div>
+  </>
   )
 }
 export default Navigation

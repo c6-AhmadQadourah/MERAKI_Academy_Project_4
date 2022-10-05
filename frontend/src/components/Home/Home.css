@@ -5,14 +5,14 @@
 
 }
 .Container{
-   
+   background-color: rgb(251, 251, 251);
     display: flex;
-    border: 3px solid black;
+    border: 3px solid #083d77 c;
     border-radius: 10px;
     margin-top: 10px;
     margin-left: 25px;
    justify-content: center;
-   
+   color: rgba(14, 48, 32, 0.748);
    /*
    max-width: 300px;
    max-height: 500px;
@@ -41,7 +41,7 @@
 
 .bigbig{
     display: grid;
-    grid-template-columns: .3fr 3fr;
+    grid-template-columns:  3fr;
 }
 
 .title{

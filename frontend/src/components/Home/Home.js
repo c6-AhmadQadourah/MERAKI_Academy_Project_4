@@ -32,6 +32,7 @@ if(!token){navigate("/login")}
             })
             .catch((err)=>{
                 console.log(err)
+                navigate('/login')
             })
             }
         
@@ -61,16 +62,19 @@ if(!token){navigate("/login")}
     
 
     return <>
+
     {/* try */}
 
-    <div className="slideShow">
+    {/* <div className="slideShow">
         <Slideshow/>
-</div>
+</div>  */}
+
     {/* try end */}
-    <div className="bigbig">
-        {/* ------- category-------- */}
-        <Categories setData={setData} />
+     {/* ------- category-------- */}
+     <Categories setData={setData} />
         {/* ------- category End -------- */}
+    <div className="bigbig">
+       
 
         <div  className="bigContainer"> 
         { originalData?.map((elem,i)=>{

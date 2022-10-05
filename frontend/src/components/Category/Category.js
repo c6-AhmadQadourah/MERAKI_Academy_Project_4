@@ -46,21 +46,30 @@ const filter=(id)=>{
     })
 }
 
-return <div className="cate">
-   
-<h2> Categories</h2>
-<hr></hr>
-<h4 onClick={()=>{setChange1(!change1)}} > All Categories </h4>
-        <hr></hr>
- { category.map((elem,i)=>{
-    return <div > 
-        
-        <h4 onClick={()=>{ filter(elem._id)}}> {elem.industry}</h4>
-        <hr></hr>
-    </div>
-}) }
-</div>
+return <>
+<div className="cate">
+<h2> Categories :</h2>
 
+<span className="aa">
+
+
+<h4 className="Cname" onClick={()=>{setChange1(!change1)}} > All Categories  </h4>
+       
+        
+
+ { category.map((elem,i)=>{
+    return <div className="category" > 
+       
+        <h4 className="Cname" onClick={()=>{ filter(elem._id)}}> {elem.industry}</h4>
+        
+        
+        
+    </div>
+    
+}) }
+</span>
+</div>
+</>
 }
 
 export default Categories
