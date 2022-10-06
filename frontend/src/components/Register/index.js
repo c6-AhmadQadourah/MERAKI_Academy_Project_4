@@ -1,11 +1,13 @@
 import axios from "axios";
 import React from "react";
 import GoogleRegister from "../googleRegister/GoogleRegister"
+import logo from "../Navbar/download.svg"
+import logo1 from "../Login/log.svg"
+import logo2 from "../Login/log2.svg"
 
 import {Navigate, useNavigate} from "react-router-dom"
 import { useEffect, useState, useContext } from "react";
 import ("./style.css")
-
 
 
 const Register = () => {
@@ -35,21 +37,36 @@ role}
   }
 
   return <div className="bigDivRegister">
+
+<img className="logo1R" src={logo} />
+
+
+<div className="new1">
+
+<img className="logo3R" src={logo2}  />
+
     <div className="infoContainerRegister">
       <p> Register</p>
-      <span>First Name</span>
-      <input className="RegInput" onChange={(e)=>{setFirstName(e.target.value)}}/>
-      <span>Last Name</span>
-      <input className="RegInput" onChange={(e)=>{setLastName(e.target.value)}}/>
-      <span>Country</span>
-      <input className="RegInput" onChange={(e)=>{setCountry(e.target.value)}}/>
-      <span>Email</span>
-      <input className="RegInput" onChange={(e)=>{setEmail(e.target.value)}}/>
-      <span>Password</span>
-      <input className="RegInput" onChange={(e)=>{setPassword(e.target.value)}}/>
+      <input placeholder="First Name" className="RegInput" onChange={(e)=>{setFirstName(e.target.value)}}/>
+
+    
+      <input placeholder="Last Name" className="RegInput" onChange={(e)=>{setLastName(e.target.value)}}/>
+
+      
+      <input placeholder="Country" className="RegInput" onChange={(e)=>{setCountry(e.target.value)}}/>
+
+      
+      <input placeholder="Email" className="RegInput" onChange={(e)=>{setEmail(e.target.value)}}/>
+
+      
+      <input placeholder="Password" className="RegInput" onChange={(e)=>{setPassword(e.target.value)}}/>
+
       <button className="registerButton" onClick={()=>{ register()}} > Register Now !</button>
 
     <GoogleRegister/>
+    </div>
+    <img className="logo2" src={logo1}  />
+
     </div>
     </div>;
 };

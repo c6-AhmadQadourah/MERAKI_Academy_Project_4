@@ -59,8 +59,9 @@ font-family: 'Courier New', Courier, monospace;
 }
 
 .logo1{
-    position: relative;
-    left: 650px;
+    position:relative;
+
+     left: 650px; 
     bottom: 90px;
     height: 600px;
     width: 600px;
