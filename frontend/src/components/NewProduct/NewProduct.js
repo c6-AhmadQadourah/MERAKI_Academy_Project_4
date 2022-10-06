@@ -10,14 +10,17 @@ import "./NewProduct.css"
 const NewProduct = ()=>{
   const [category1 , setCategory1]=useState([])
   const [category , setCategory]=useState([])
+  const [cate , setCate]=useState("Select Category")
    
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [price, setPrice] = useState(0)
   const [image, setImage] = useState("")
+  const [shown, setShown] = useState(false)
 
   const { token  } = useContext(AuthContext);
 
+const navigate=useNavigate()
   
 
   useEffect(()=>{
@@ -45,7 +48,12 @@ const NewProduct = ()=>{
         axios.post ("http://localhost:5000/products" , body , {
   headers: { Authorization: `Bearer ${token}`} })
   .then((response)=>{
+    setShown(true)
 
+    setTimeout(() => {
+      navigate('/')
+      
+    }, 1000);
 
     console.log(response)
     
@@ -75,18 +83,24 @@ const NewProduct = ()=>{
             <span> Category</span>
 
             <div class="dropdown">
-  <button class="dropbtn">Select Category</button>
+  <button class="dropbtn">{cate}</button>
   
   <div class="dropdown-content">
   {category1.map((elem)=>{
     
-      return(<div className="industry"> <p onClick={()=>{setCategory(elem._id)}} >{elem.industry}</p> <hr></hr></div>)
+      return(<div className="industry"> <p onClick={()=>{setCategory(elem._id) ;setCate(elem.industry)}} >{elem.industry}</p> <hr></hr></div>)
     })}
   </div>
+
+ 
 </div>
 
-            <button className="addP" onClick={()=>{ addProduct()}}>Add Product </button>
+            <button className="addP" onClick={()=>{ addProduct() }}>Add Product </button>
 
+
+  {  !shown?null:        <div className="sucsses">
+  <h1>Product Added Sucssfully</h1>
+  </div>}
             </div>
     )
 }

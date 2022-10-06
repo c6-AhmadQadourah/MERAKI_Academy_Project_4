@@ -15,7 +15,7 @@ const Cart = () => {
   let [quantity, setQuantity] = useState(0);
   const [itemID, setItemID] = useState("");
   const [total, setTotal] = useState(0);
-
+const [totalPrice , setTotalPrice ]=useState(null)
 
 
   useEffect( () => {
@@ -85,6 +85,7 @@ const Cart = () => {
       <img src="https://dlinkmea.com/images/no-product.png" />
       </div>
       :data.map((elem, i) => {
+
         return (
           <div key={i} className="Container">
             <div className="imgDiv">
@@ -106,7 +107,7 @@ const Cart = () => {
                 {" "}
                 Remove From Cart
               </button>
-              <button> add to fav</button>
+            
               <div className="Q">
                 <p>Quantity</p>
                 <button
