@@ -54,6 +54,7 @@ font-family: 'Courier New', Courier, monospace;
     display: inline-block;
     font-size: 16px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -79,3 +80,10 @@ height:500px ;
     position: relative;
     left: 300px;
 }
+
+@media all and (max-width: 480px) {
+
+    .bigDivRegister{
+        width: 100vw;
+    }
+ }

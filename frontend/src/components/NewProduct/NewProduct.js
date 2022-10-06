@@ -95,11 +95,11 @@ const navigate=useNavigate()
  
 </div>
 
-            <button className="addP" onClick={()=>{ addProduct() }}>Add Product </button>
+              <button className="addP" onClick={()=>{ addProduct() }}>Add Product </button>
 
 
   {  !shown?null:        <div className="sucsses">
-  <h1>Product Added Sucssfully</h1>
+  <h1 className="suc">Product Added Sucssfully</h1>
   </div>}
             </div>
     )

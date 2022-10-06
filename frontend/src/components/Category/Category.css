@@ -37,3 +37,28 @@
 .Cname{
     cursor: pointer;
 }
+
+
+@media all and (max-width: 480px) {
+
+    .cate {
+        width: 300vw;
+      
+    }
+    .aa{
+        width:250vw;
+        gap:15vw
+    }
+
+        .Cname{
+        width: 5vw;
+
+        }
+    .category{
+        width: 12vw;
+        position: relative;
+        left: 10px;
+       
+    }
+
+}

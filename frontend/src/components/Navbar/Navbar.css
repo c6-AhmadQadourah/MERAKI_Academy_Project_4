@@ -1,4 +1,5 @@
 .navigation{
+   
     justify-content: space-between;
   display: flex;
   height: 70px;
@@ -83,7 +84,7 @@ right : 5px;
 
 .searchDiv{
     display: flex;
-
+gap: 10px;
     align-content: center;
     align-items: center;
     justify-content: center;
@@ -91,13 +92,17 @@ right : 5px;
 
 .cart_searchDiv{
     display: flex;
+   
     
 }
 
 #searchButton{
-    padding-left: 15px;
-    padding-right: 15px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
     margin-left: 2px;
+    font-size: small;
 }
 
 #home{
@@ -115,3 +120,25 @@ right : 5px;
     width: 200px;
     height: 150px;
 }
+
+
+@media all and (max-width: 480px) {
+
+    .navigation{
+        width: 450px;
+    }
+    .searchDiv{
+        width: 15vw;
+    }
+    .bigCart{
+        width: 5vw;
+        
+    }
+    .link{
+        width: 5vw;
+    }
+    .cart_searchDiv{
+        width: 20vw;
+        
+    }
+ }

@@ -21,6 +21,8 @@ const { isLoggedIn, saveToken ,setIsAdmin , isAdmin} = useContext(AuthContext);
 const navigate=useNavigate()
 const body = {email , password  }
 
+const [loggedInSucssfully, setLoggedInSucssfully]= useState(false)
+
 
 
 const login= ()=>{
@@ -41,17 +43,18 @@ localStorage.setItem("userId" , response.data.result._id)
   if (adminRole=="admin"){ 
 
     setIsAdmin(true)}
+    setLoggedInSucssfully(true)
 
 
   setTimeout(() => {
     if (adminRole=="admin"){ 
-
      // setIsAdmin(true)
 
   localStorage.setItem("Admin" , true)
   setIsAdmin(localStorage.getItem("Admin"))
   console.log(isAdmin)
       navigate ("/")
+
   }
     else{ navigate ("/")}
     
@@ -95,6 +98,11 @@ useEffect(() => {
 {/* <p> Password</p> */}
 <input className="emailInput" placeholder=" Password " onChange={(e)=>{setPassword(e.target.value)}}/>
 
+
+{loggedInSucssfully&& <div className="popuptry">
+
+  <h1 >  Logged In Sussfully</h1>
+</div>}
 
 
 <button className="loginButton"  onClick={()=>{login()}}> Login </button>

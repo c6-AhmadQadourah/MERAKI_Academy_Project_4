@@ -17,7 +17,8 @@ const [country ,setCountry]=useState("")
 const [email , setEmail]=useState("")
 const [password, setPassword]= useState("")
 const [role, setRole] = useState("6330bbe89cea5c5c03a3fb09")
-
+const [registeredSucssfully, setRegisteredSucssfully]= useState(false)
+const navigate=useNavigate()
 
 const body = {firstName,
   lastName,
@@ -29,6 +30,11 @@ role}
   const register = ()=>{
     axios.post("http://localhost:5000/users", body)
     .then((response)=>{
+
+      setRegisteredSucssfully(true)
+      setTimeout(() => {
+        navigate("/login") 
+      }, 1000);
     console.log (response)
     })
     .catch((err)=>{
@@ -60,6 +66,13 @@ role}
 
       
       <input placeholder="Password" className="RegInput" onChange={(e)=>{setPassword(e.target.value)}}/>
+
+
+      
+{registeredSucssfully&& <div className="popuptry">
+
+<h1 >  Registerd In Sussfully</h1>
+</div>}
 
       <button className="registerButton" onClick={()=>{ register()}} > Register Now !</button>
 

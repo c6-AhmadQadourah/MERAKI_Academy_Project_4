@@ -75,6 +75,18 @@ align-items: center;
   }
 
  .sucsses{
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  width: 1000px;
+  height: 500px;
+  position: absolute;
+  top:90px;
 border-radius: 10px;
-  background-color: rgba(100, 191, 47, 0.229);
+  background-color: rgba(0, 0, 0, 0.518);
+ }
+ .suc{
+  color: aliceblue;
+  position: relative;
+  top: 140px;
  }
