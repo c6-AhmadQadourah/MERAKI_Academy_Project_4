@@ -58,10 +58,18 @@
 
 
     .bigContainer{
+       
        grid-template-columns: 1fr;
     }
 
     .itemContainer{
-        width: 100vw;
+        width: 220vw;
+    }
+    .image-container{
+        width: 300vw;
+    }
+
+    .slideShow{
+        width: 300vw;
     }
  }
