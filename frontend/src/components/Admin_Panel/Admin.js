@@ -3,7 +3,7 @@ import axios, { Axios } from "axios"
 import { useParams } from "react-router-dom";
 import {AuthContext} from "../Contexts/context";
 import {Navigate, useNavigate} from "react-router-dom"
-
+import "./Admin.css"
 
 const Admin= ()=>{
   const navigate = useNavigate();
@@ -13,9 +13,9 @@ const Admin= ()=>{
     const { token   } = useContext(AuthContext);
 
 
-    return <div > 
-  <button onClick={()=>{navigate("/admin/new")}} >Products</button>
- <button onClick={()=>{navigate("/users")}}>  Users</button>
+    return <div className="Admin" > 
+  <button className="btn" onClick={()=>{navigate("/admin/new")}} >Products</button>
+ <button className="btn" onClick={()=>{navigate("/users")}}>  Users</button>
     </div>
 }
 export default Admin

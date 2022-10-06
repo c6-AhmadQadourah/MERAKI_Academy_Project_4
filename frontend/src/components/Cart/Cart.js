@@ -144,7 +144,7 @@ const Cart = () => {
       .map((elem) => elem.product.price)
     .reduce((prev, curr) => prev + curr, 0)}$  </h1>
 
-    <button className="checkOut"> Proceed To Checkout</button>
+
       </div>
     </div>
   );

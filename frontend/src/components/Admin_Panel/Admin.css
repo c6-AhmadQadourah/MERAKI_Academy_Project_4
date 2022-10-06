@@ -1,0 +1,21 @@
+.Admin{
+margin-top: 250px;
+    display: flex;
+    justify-content: center;
+    gap:50px
+}
+
+.btn{
+
+    display: flex;
+    border-radius: 10px;
+    background-image: linear-gradient( rgb(191, 45, 45), rgb(18, 18, 6));
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    align-items: flex-end;
+    font-size: 18px;
+    font-weight: bold;
+}
