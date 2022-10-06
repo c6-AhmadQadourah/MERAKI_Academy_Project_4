@@ -25,15 +25,14 @@
 
 .itemContainerDetails{
 width: 700px;
-height:  500px;
-  border: 1px solid black;
+height:  fit-content;
   
 }
 
 
 .addToCart {
   border-radius: 10px;
-  background-color: #4CAF50; /* Green */
+  background-image: linear-gradient( rgb(191, 45, 45), rgb(18, 18, 6));
   border: none;
   color: white;
   padding: 15px 32px;
@@ -41,16 +40,20 @@ height:  500px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  font-weight: bold;
+
 }
 
 .Buttons{
   display: flex;
-  justify-content: space-around
+  justify-content: space-around;
+  margin-top: 5px;
 }
 
 
 .commentsDiv{
   border: black solid 3px;
+  border-radius: 10px;
 }
 .New {
   height: 30px;
@@ -66,7 +69,7 @@ height:  500px;
 .likeButton{
   display: flex;
   border-radius: 10px;
-  background-color: #4CAF50; /* Green */
+  background-image: linear-gradient( rgb(191, 45, 45), rgb(18, 18, 6));
   border: none;
   color: white;
   padding: 15px 32px;
@@ -74,4 +77,51 @@ height:  500px;
   text-decoration: none;
   align-items: flex-end;
   font-size: 18px;
+  font-weight: bold;
 }
+
+
+.textArea{
+  height: 20px;
+  width: 612px;
+  font-size: large;
+
+}
+
+.text_button{
+  display: flex;
+}
+
+.comments{ 
+  display: flex;
+  padding-left: 10px;
+
+}
+
+.eachComment{
+  
+
+ 
+}
+
+.commenter{
+  font-size: large;
+  font-weight: bold;
+}
+
+.topRev{
+  margin-bottom: 0px;
+  margin-top: 35px;
+}
+
+.commentButton{
+  border-radius: 5px;
+color: white;
+font-weight: bold;
+  background-image: linear-gradient( rgb(191, 45, 45), rgb(18, 18, 6));
+}
+
+  .hr {
+   border: solid 2px;
+    
+  }

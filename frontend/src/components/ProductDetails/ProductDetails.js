@@ -173,7 +173,7 @@ console.log(err)
           )}
         </div>
         <span className="itemContainerDetails">
-          {update ? null : <h1>{data.title}</h1>}
+          {update ? null : <h1 className="title">{data.title}</h1>}
           {update && (
             <input
               className="New"
@@ -183,7 +183,7 @@ console.log(err)
               }}
             />
           )}
-          <hr></hr>
+          <hr className="hr"></hr>
           {update ? null : <h4>{data.description}</h4>}
           {update && (
             <input
@@ -230,24 +230,33 @@ console.log(err)
               <span>({data.likes})</span>{" "}
             </button>
 
-            <button className="addToCart"> Add To Favorite</button>
+              
           </div>
+          
+              <h1 className="topRev">Top reviews</h1>
           {/*--------------------- Comments-------------------------*/}
-
+          <div className="commentsDiv">
           {comments.map((elem) => {
+            console.log(elem.commenter)
             return (
-              <div className="commentsDiv">
-                <div>
-                  <p>
-                    <span>{elem.commenter.firstName}</span> :{" "}
+             
+                <div className="comments">
+                  <p className="eachComment">
+                    <span className="commenter">{ elem.commenter.firstName }</span> :{" "}
                     <span>{elem.comment}</span>{" "}
+
                   </p>
                 </div>
               
-              </div>
+             
             );
           })}
-     
+ <div className="text_button" >
+               <textarea placeholder="Write Your Comment Here !" className="textArea" onChange={(e)=>{setComment(e.target.value)}}></textarea>
+               <button className="commentButton" onClick={()=>{createComment(data._id) }}>Comment</button>
+               </div>
+          
+      </div>
         </span>
 
         {isAdmin && (
@@ -271,10 +280,7 @@ console.log(err)
             </button>
           </div>
         )}
-        <div>
-               <textarea onChange={(e)=>{setComment(e.target.value)}}></textarea>
-               <button onClick={()=>{createComment(data._id) }}>Comment</button>
-               </div>
+       
       </div>
       {/*--------------------- Suggested Products-------------------------*/}
       <h1> Other Products You May Like !</h1>

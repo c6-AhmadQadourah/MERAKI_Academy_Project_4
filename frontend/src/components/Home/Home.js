@@ -10,6 +10,7 @@ import Categories from "../Category/Category";
 const Home = ({setId  })=>{
     const [data , setData]=useState([])
    
+  const [fadeImages,setFadeImages]=useState([])
 
     const { token ,change1  } = useContext(AuthContext);
     const { setOriginalData , isAdmin ,originalData  } = useContext(AuthContext);
@@ -26,13 +27,12 @@ if(!token){navigate("/login")}
                 console.log(response.data.products)
                 setData(response.data.products)
                 setOriginalData(response.data.products)
-                
+  
                 //setLoggedUser(response.data.userId)
-                
+               
             })
             .catch((err)=>{
                 console.log(err)
-                navigate('/login')
             })
             }
         
@@ -59,20 +59,20 @@ if(!token){navigate("/login")}
               });
         }
 
-    
-
+ 
     return <>
-
+ {/* ------- category-------- */}
+ <Categories setData={setData} />
+        {/* ------- category End -------- */}
     {/* try */}
 
-    {/* <div className="slideShow">
-        <Slideshow/>
-</div>  */}
+      <div className="slideShow">
+        <Slideshow />
+       
+</div>  
 
     {/* try end */}
-     {/* ------- category-------- */}
-     <Categories setData={setData} />
-        {/* ------- category End -------- */}
+    
     <div className="bigbig">
        
 

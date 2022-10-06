@@ -1,7 +1,7 @@
 @import "react-slideshow-image/dist/styles.css";
 
 .slide-container{
-height : 300px
+padding-bottom: 20px;
 }
 
 .each-fade{
@@ -9,11 +9,7 @@ height : 300px
 }
 
 .imagee{
+    width: 400px;
     height: 300px;
     border-radius: 10px
-}
-.image-container{
-    
-    height: 300px;
-
 }
