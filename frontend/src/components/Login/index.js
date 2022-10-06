@@ -79,14 +79,14 @@ useEffect(() => {
 
   return <div className="BigDivLogin">
 
-<span className="logoContainer">
-<img className="logo2" src={logo2}  />
+
 
 <img className="logo1" src={logo} />
-<img className="logo2" src={logo1}  />
 
-</span>
 
+
+<div className="new">
+<img className="logo3" src={logo2}  />
 
 <div className="infoContainer">
 <h1> Login</h1>
@@ -103,7 +103,9 @@ useEffect(() => {
 
 
 </div>
+<img className="logo2" src={logo1}  />
 
+</div>
   </div>;
 };
 export default Login;
