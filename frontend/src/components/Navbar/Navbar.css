@@ -125,20 +125,34 @@ gap: 10px;
 @media all and (max-width: 480px) {
 
     .navigation{
-        width: 450px;
+        width: 300vw;
     }
     .searchDiv{
-        width: 15vw;
+        width: 40%;
     }
     .bigCart{
-        width: 5vw;
+        width: 100vw;
         
     }
     .link{
-        width: 5vw;
+        font-size: small;
+        width: 2%;
     }
     .cart_searchDiv{
-        width: 20vw;
+        width:20%;
         
     }
+.loginReg{
+    width: 100vw;
+}
+.i{
+    width: 25vw;
+}
+
+#home{
+    font-size: small;
+    position: absolute; 
+   left: 80px;
+    width: 30%;
+}
  }
