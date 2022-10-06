@@ -1,6 +1,6 @@
 .ContainerDetails{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: center;
 
     margin-top: 100px;
@@ -125,3 +125,27 @@ font-weight: bold;
    border: solid 2px;
     
   }
+
+
+  .newDiv{
+    display: grid;
+  grid-template-columns: 1fr 1fr;
+  }
+
+  @media all and (max-width: 480px) {
+
+    .BigDiv1{
+      display: grid;
+      grid-template-rows: 1fr  ;
+      justify-content: center;
+  
+      margin-top: 100px;
+      margin-left: 25px;
+     justify-content: center;
+  }
+  
+  .newDiv{
+    display: grid;
+  grid-template-columns:  1fr;
+  }
+ }

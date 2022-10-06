@@ -149,7 +149,7 @@ const Users = ()=>{
 
 
 { data2.map((elem,i)=>{
-
+console.log(data2)
 
  return (
   

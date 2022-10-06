@@ -52,3 +52,12 @@
   
   transform: rotate(10deg);
 }
+
+
+@media all and (max-width: 480px) {
+
+
+    .bigContainer{
+        grid-template-columns: 1fr;
+    }
+ }

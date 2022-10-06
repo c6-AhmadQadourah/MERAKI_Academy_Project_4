@@ -156,8 +156,10 @@ console.log(err)
   }
 
   return (
-    <div>
+    <div className="BigDiv1">
       <div className="ContainerDetails">
+
+        <div className="newDiv">
         <div className="imgDivDetails">
           {update ? null : (
             <img className="imgDetails" src={data.image} alt="img" />
@@ -282,6 +284,7 @@ console.log(err)
         )}
        
       </div>
+        </div>
       {/*--------------------- Suggested Products-------------------------*/}
       <h1> Other Products You May Like !</h1>
       <div className="bigContainer">
