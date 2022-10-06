@@ -6,8 +6,9 @@ import axios from "axios";
 import "./style.css"
 //import Google from "../googleTest/Google";
 import Googlelogin from "../googleLogin/GoogleLogin";
-
-
+import logo from "../Navbar/download.svg"
+import logo1 from "./log.svg"
+import logo2 from "./log2.svg"
 
 const Login = () => {
   
@@ -78,12 +79,21 @@ useEffect(() => {
 
   return <div className="BigDivLogin">
 
+<span className="logoContainer">
+<img className="logo2" src={logo2}  />
+
+<img className="logo1" src={logo} />
+<img className="logo2" src={logo1}  />
+
+</span>
+
+
 <div className="infoContainer">
-<p> Login</p>
-<p> Email</p>
-<input className="emailInput" placeholder="Write Your Email Here !!" onChange={(e)=>{setEmail(e.target.value)}}/>
-<p> Password</p>
-<input className="emailInput" placeholder="Write Your Password Here !!" onChange={(e)=>{setPassword(e.target.value)}}/>
+<h1> Login</h1>
+{/* <p> Email</p> */}
+<input className="emailInput" placeholder="  Email " onChange={(e)=>{setEmail(e.target.value)}}/>
+{/* <p> Password</p> */}
+<input className="emailInput" placeholder=" Password " onChange={(e)=>{setPassword(e.target.value)}}/>
 
 
 
