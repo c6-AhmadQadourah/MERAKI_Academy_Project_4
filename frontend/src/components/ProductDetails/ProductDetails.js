@@ -16,7 +16,7 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState(0);
   const [price, setPrice] = useState(null);
-  const [comment, setComment] = useState("")
+  const [comment, setComment] = useState("");
 
   //----------------------Update Product -----------------------//
   const [update, setUpdate] = useState(false);
@@ -133,161 +133,171 @@ const ProductDetails = () => {
       });
   };
 
+  const createComment = (id) => {
+    const body = { comment };
 
-  const createComment=(id)=>{
-    const body = {comment}
-    
-    axios.post (`http://localhost:5000/products/${id}/comments` , body , {
-headers: { Authorization: `Bearer ${token}`} })
-.then((response)=>{
+    axios
+      .post(`http://localhost:5000/products/${id}/comments`, body, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setchange(!change);
 
-  setchange(!change);
-
-console.log(response)
-
-
-})
-.catch((err)=>{
-console.log(err)
-
-})
-
-
-  }
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="BigDiv1">
       <div className="ContainerDetails">
-
         <div className="newDiv">
-        <div className="imgDivDetails">
-          {update ? null : (
-            <img className="imgDetails" src={data.image} alt="img" />
-          )}
-          {update && (
-            <input
-              className="New"
-              placeholder="Paste Your Image URL HERE !"
-              onChange={(e) => {
-                setNewImage(e.target.value);
-              }}
-            />
+          <div className="imgDivDetails">
+            {update ? null : (
+              <img className="imgDetails" src={data.image} alt="img" />
+            )}
+            {update && (
+              <input
+                className="New"
+                placeholder="Paste Your Image URL HERE !"
+                onChange={(e) => {
+                  setNewImage(e.target.value);
+                }}
+              />
+            )}
+          </div>
+          <span className="itemContainerDetails">
+            {update ? null : <h1 className="title">{data.title}</h1>}
+            {update && (
+              <input
+                className="New"
+                placeholder="Write Your New Title HERE !"
+                onChange={(e) => {
+                  setNewTitle(e.target.value);
+                }}
+              />
+            )}
+            <hr className="hr"></hr>
+            {update ? null : <h4>{data.description}</h4>}
+            {update && (
+              <input
+                className="New"
+                placeholder="Write Your New Description HERE !"
+                onChange={(e) => {
+                  setNewDescription(e.target.value);
+                }}
+              />
+            )}
+            <hr></hr>
+
+            {update ? null : <h2>Price : {data.price}$ </h2>}
+            {update && (
+              <input
+                className="New"
+                placeholder="Write Your New Price HERE !"
+                onChange={(e) => {
+                  setNewPrice(e.target.value);
+                }}
+              />
+            )}
+            <hr></hr>
+
+            <div className="Buttons">
+              <button
+                className="addToCart"
+                onClick={() => {
+                  addToCart();
+                }}
+              >
+                {" "}
+                Add To Cart
+              </button>
+              <button
+                className="likeButton"
+                onClick={() => {
+                  setLikes(likes++);
+                  like(data._id);
+                  setPrice(price);
+                }}
+              >
+                Like <img className="logo" src={logo} />{" "}
+                <span>({data.likes})</span>{" "}
+              </button>
+            </div>
+
+            
+           
+          </span>
+
+          {isAdmin && (
+            <div>
+              <button
+                onClick={() => {
+                  setUpdate(!update);
+                }}
+              >
+                {" "}
+                Update Product
+              </button>
+              <button
+                onClick={() => {
+                  updateProduct();
+                  setUpdate(!update);
+                }}
+              >
+                {" "}
+                Finish Update !
+              </button>
+            </div>
           )}
         </div>
-        <span className="itemContainerDetails">
-          {update ? null : <h1 className="title">{data.title}</h1>}
-          {update && (
-            <input
-              className="New"
-              placeholder="Write Your New Title HERE !"
-              onChange={(e) => {
-                setNewTitle(e.target.value);
-              }}
-            />
-          )}
-          <hr className="hr"></hr>
-          {update ? null : <h4>{data.description}</h4>}
-          {update && (
-            <input
-              className="New"
-              placeholder="Write Your New Description HERE !"
-              onChange={(e) => {
-                setNewDescription(e.target.value);
-              }}
-            />
-          )}
-          <hr></hr>
-
-          {update ? null : <h2>Price : {data.price}$ </h2>}
-          {update && (
-            <input
-              className="New"
-              placeholder="Write Your New Price HERE !"
-              onChange={(e) => {
-                setNewPrice(e.target.value);
-              }}
-            />
-          )}
-          <hr></hr>
-
-          <div className="Buttons">
-            <button
-              className="addToCart"
-              onClick={() => {
-                addToCart();
-              }}
-            >
-              {" "}
-              Add To Cart
-            </button>
-            <button
-              className="likeButton"
-              onClick={() => {
-                setLikes(likes++);
-                like(data._id);
-                setPrice(price);
-              }}
-            >
-              Like <img className="logo" src={logo} />{" "}
-              <span>({data.likes})</span>{" "}
-            </button>
-
-              
-          </div>
-          
-              <h1 className="topRev">Top reviews</h1>
-          {/*--------------------- Comments-------------------------*/}
-          <div className="commentsDiv">
-          {comments.map((elem) => {
-            console.log(elem.commenter)
-            return (
-             
-                <div className="comments">
-                  <p className="eachComment">
-                    <span className="commenter">{ elem.commenter.firstName }</span> :{" "}
-                    <span>{elem.comment}</span>{" "}
-
-                  </p>
-                </div>
-              
-             
-            );
-          })}
- <div className="text_button" >
-               <textarea placeholder="Write Your Comment Here !" className="textArea" onChange={(e)=>{setComment(e.target.value)}}></textarea>
-               <button className="commentButton" onClick={()=>{createComment(data._id) }}>Comment</button>
-               </div>
-          
       </div>
-        </span>
 
-        {isAdmin && (
-          <div>
-            <button
-              onClick={() => {
-                setUpdate(!update);
-              }}
-            >
-              {" "}
-              Update Product
-            </button>
-            <button
-              onClick={() => {
-                updateProduct();
-                setUpdate(!update);
-              }}
-            >
-              {" "}
-              Finish Update !
-            </button>
-          </div>
-        )}
-       
-      </div>
-        </div>
+
+
+              <div className="Rev1"> 
+              {/*--------------------- Comments-------------------------*/}
+              <div className="commentsDiv">
+            <h1 className="topRev">Top reviews</h1>
+              {comments.map((elem) => {
+                console.log(elem.commenter);
+                return (
+                  <div className="comments">
+                    <p className="eachComment">
+                      <span className="commenter">
+                        {elem.commenter.firstName}
+                      </span>{" "}
+                      : <span>{elem.comment}</span>{" "}
+                    </p>
+                  </div>
+                );
+              })}
+              <div className="text_button">
+                <textarea
+                  placeholder="Write Your Comment Here !"
+                  className="textArea"
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                  }}
+                ></textarea>
+                <button
+                  className="commentButton"
+                  onClick={() => {
+                    createComment(data._id);
+                  }}
+                >
+                  Comment
+                </button>
+              </div>
+            </div>
       {/*--------------------- Suggested Products-------------------------*/}
-      <h1> Other Products You May Like !</h1>
-      <div className="bigContainer">
+      <div className="bigContainer1">
+
+      <h1 className="h11"> Other Products You May Like !</h1>
+         
+
         {data1 &&
           data1.map((elem, i) => {
             return (
@@ -312,6 +322,7 @@ console.log(err)
               </>
             );
           })}
+          </div>
       </div>
     </div>
   );

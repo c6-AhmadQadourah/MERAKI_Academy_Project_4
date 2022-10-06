@@ -52,8 +52,10 @@ height:  fit-content;
 
 
 .commentsDiv{
-  border: black solid 3px;
+  border: black solid 2px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .New {
   height: 30px;
@@ -64,7 +66,9 @@ height:  fit-content;
 .logo{
   width: 25px;
 }
-
+.bigContainer1{ padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;}
 
 .likeButton{
   display: flex;
@@ -83,7 +87,7 @@ height:  fit-content;
 
 .textArea{
   height: 20px;
-  width: 612px;
+  width: 255px;
   font-size: large;
 
 }
@@ -112,6 +116,7 @@ height:  fit-content;
 .topRev{
   margin-bottom: 0px;
   margin-top: 35px;
+  margin-bottom: 50px;
 }
 
 .commentButton{
@@ -131,6 +136,18 @@ font-weight: bold;
     display: grid;
   grid-template-columns: 1fr 1fr;
   }
+
+
+.h11{
+  position: absolute;
+  top: 650px;
+  right: 400px;
+}
+
+.Rev1{
+  display: grid;
+  grid-template-columns: .5fr 3fr;
+}
 
   @media all and (max-width: 480px) {
 
@@ -153,11 +170,12 @@ font-weight: bold;
   left: 170px;
   }
 
-  .Container{
-    width: 300vw;
-  }
+ 
   .imgDetails{
   position: relative;
   right: 200px;
   }
+
+  .bigContainer1{     grid-template-columns: 1fr;
+   }
  }

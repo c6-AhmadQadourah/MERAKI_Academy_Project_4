@@ -60,6 +60,7 @@
     .bigContainer{
        
        grid-template-columns: 1fr;
+       width: 300vw;
     }
 
     .itemContainer{
