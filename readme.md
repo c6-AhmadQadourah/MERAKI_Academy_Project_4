@@ -1,13 +1,13 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://www.meraki-academy.org/assets/img/logov02.svg" alt="Project logo"></a>
+ <img width=200px height=200px src="frontend\src\components\Navbar\download.svg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">MERAKI</h3>
+<h3 align="center">AswaQuna</h3>
 
 ---
 
-<p align="center"> An awesome Project to descripe README 
+<p align="center"> E-commerce App that will make a change
     <br> 
 <a href=''>Demo</a>
     <br> 
@@ -25,9 +25,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
-
-Ex. Are you looking for a quick and easy way to action, action, and action? The **(name of application)** is the greatest and most accurate application to do this for you. It helps you to **(list of activities)**. The **(name of application)** provides a simple design to ensure having the best user experience.
+We always wanted an application that both customer and seller gets what they need with the least cost  best efficiency and price , thats why we created AswaQuna app 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -35,23 +33,35 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-- Visual Studio Code follow this <a href=''>link</a> to install.
-- Git Bash follow this <a href=''>link</a> to install.
-- MongoDB follow this <a href=''>link</a> to install.
-- Node.js follow this <a href=''>link</a> to install.
+- Visual Studio Code follow this <a href='https://code.visualstudio.com/Download'>link</a> to install.
+- Git Bash follow this <a href='https://git-scm.com/downloads'>link</a> to install.
+- MongoDB follow this <a href='https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-6.0.2-signed.msi'>link</a> to install.
+- Node.js follow this <a href='https://nodejs.org/en/download/'>link</a> to install.
 
 ### Installing:
 
 1. Clone the repo to your local machine using git bash.
 
 ```
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/c6-AhmadQadourah/MERAKI_Academy_Project_4.git
 ```
 
 2. Install packeges repeat this step in backend and frontend folder
 
 ```
+Backend :
+
 npm i
+npm i express
+npm i mongoose
+npm i dotenv
+npm i jsonwebtoken
+------------------------
+Frontend :
+npm i react
+npm i react-google-login
+npm i react-router-dom
+npm i axios
 ```
 
 3. Run server using git bash inside backend folder
@@ -67,6 +77,8 @@ npm run start
 ```
 
 Now app ready to use
+
+<img width=300  src="https://svgshare.com/i/nF6.svg" >
 
 ## 🎈 Usage <a name="usage"></a>
 

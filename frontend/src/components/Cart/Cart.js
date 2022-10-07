@@ -15,7 +15,7 @@ const Cart = () => {
   let [quantity, setQuantity] = useState(0);
   const [itemID, setItemID] = useState("");
   const [total, setTotal] = useState(0);
-const [totalPrice , setTotalPrice ]=useState(null)
+const [totalPrice , setTotalPrice ]=useState(0)
 
 
   useEffect( () => {
@@ -127,7 +127,7 @@ const [totalPrice , setTotalPrice ]=useState(null)
                   className="qb"
                   onClick={() => {
                     setQuantity(quantity++); updateQuantity(elem._id);
-                    
+                   
                   }}
                 >
                   +
@@ -143,7 +143,7 @@ const [totalPrice , setTotalPrice ]=useState(null)
         
       <h1> Subtotal  ({data.length} Items) :  { data
       .map((elem) => elem.product.price)
-    .reduce((prev, curr) => prev + curr, 0)}$  </h1>
+    .reduce((prev, curr) => prev + curr, totalPrice)}$  </h1>
 
 
       </div>
