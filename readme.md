@@ -56,6 +56,7 @@ npm i express
 npm i mongoose
 npm i dotenv
 npm i jsonwebtoken
+npm i bcrypt
 ------------------------
 Frontend :
 npm i react
@@ -96,14 +97,14 @@ Ex.
 - [React JS](https://https://reactjs.org/) - Web Framework
 - [Node JS](https://nodejs.org/en/) - Server Environment
 
-## User Story <a name = "#user_story"></a>
+## User Story <a  name = "#user_story"></a>
 
-Your trello board link
-<a href=''>Trello</a>
+
+<a href='https://trello.com/b/HJXOCseR/a'>Trello</a>
 
 ## Data Flow <a name = "#data_flow"></a>
 
-<img width=200px height=200px src="https://cacoo.com/assets/site/img/templates/screenshots/er-database-diagram.png" alt="Diagram"></a>
+<img width=200px height=200px src="frontend\public\Schema.svg" alt="Diagram"></a>
 
 ## ⚠️ Guided By <a name = "guided_by"></a>
 

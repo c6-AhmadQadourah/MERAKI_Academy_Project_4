@@ -156,9 +156,10 @@ const getAllUserItems = (req, res) => {
 };
 
 const deleteItemsforuser = (req, res) => {
-  const product = req.params.product
 
+  const product = req.params.product
   const _id =req.params.id
+  
   CartModel.findOneAndDelete({user:_id , product:product} )
   .populate([
     {
