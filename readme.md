@@ -86,9 +86,60 @@ Now app ready to use
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 Ex.
-- You don't have to register to navigate our web app
-- You can click on the **Home** tab provided in the navigation bar to view the home section
-- You can click on the **Add to cart** button to add this product to your cart but you have to be one of our users, so you should create an account 
+- You Have to Register By filling those field inside the picture below , then Click on the Button **Register**
+                                    
+<img   width=300  src="frontend\public\ReadmePictures\Register.png" >
+
+
+- Congratulations !   now You became one of our Family After You complete  Registration the app will Navigate you to **Login Page** , 
+fill login field to access our amazing  Features!
+
+<img   width=300  src="frontend\public\ReadmePictures\Login.png" >
+
+- Welcome ! After You complete  Login the app will Navigate you to the **Home Page**
+
+<img   width=300  src="frontend\public\ReadmePictures\Home.png" >
+
+
+- You can filter the products by clicking on any Category you want to get or use the search field  ! 
+
+<img   width=300  src="frontend\public\ReadmePictures\Category.png" >
+
+
+
+- Do you want more details about one of our amazing products of you liked ? thats easy just click on its **title** and the app will navigate you  to the Product details  as its shown below 
+
+<img   width=300  src="frontend\public\ReadmePictures\Title.png" >
+<img   width=300  src="frontend\public\ReadmePictures\Product_Details.png" >
+
+- did you have any comments ? you can give a **review** to the product in the review section !
+
+<img   width=200 height=300  src="frontend\public\ReadmePictures\Reviews.png" >
+
+
+
+- You can click on the **Add to cart** button to add this product to your cart and You can give it a like !
+
+<img   width=500  src="frontend\public\ReadmePictures\AddToCart.png" >
+
+- After adding a product to Your cart you can find it by pressing on **Cart** button in the navigation bar , whenever there is a number that shows you how many items there in your cart as its shown below 
+
+<img   width=700  src="frontend\public\ReadmePictures\Cart.png" >
+
+
+- After pressing on your **Cart Button**  You can manage items inside Your cart now by removing any item or change the Quantity of each item
+
+<img   width=500  src="frontend\public\ReadmePictures\InCart.png" >
+
+
+
+
+- Now you can enjoy our fantasy products and discover our application amazing Features ! 
+
+<img   width=300  src="https://www.satyamitsolution.com/img/Welcome-to-Our-Company_4325%20(1).jpg" >
+
+
+
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
