@@ -101,7 +101,7 @@ fill login field to access our amazing  Features!
 <img   width=300  src="frontend\public\ReadmePictures\Home.png" >
 
 
-- You can filter the products by clicking on any Category you want to get or use the search field  ! 
+- You can filter the products by clicking on any **Category** you want to get or use the **search field**  ! 
 
 <img   width=300  src="frontend\public\ReadmePictures\Category.png" >
 
