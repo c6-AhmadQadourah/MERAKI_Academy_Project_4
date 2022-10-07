@@ -36,3 +36,25 @@ font-size: x-large;}
     margin-top: 20px;
     margin-left: 30px;
 }
+
+.Container1{
+
+    background-color: rgb(251, 251, 251);
+    display: flex;
+    border: 3px solid #083d77 c;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 25px;
+   justify-content: center;
+   color: rgba(0, 0, 0, 0.987);
+}
+
+
+@media all and (max-width: 480px) {
+    .Container1{
+        grid-template-columns: 1fr;
+        width: 300vw;
+    }
+
+
+}

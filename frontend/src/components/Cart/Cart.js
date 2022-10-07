@@ -87,7 +87,7 @@ const [totalPrice , setTotalPrice ]=useState(0)
       :data.map((elem, i) => {
 
         return (
-          <div key={i} className="Container">
+          <div key={i} className="Container1">
             <div className="imgDiv">
               <img className="img" src={elem.product.image} alt="img" />
             </div>
