@@ -68,7 +68,7 @@ localStorage.setItem("userId" , response.data.result._id)
   console.log (err)
   seterror(err.response.data.message)
   setIserror(!true)
-
+  navigate ("/login")
 })
 }
 

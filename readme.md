@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="frontend\src\components\Navbar\download.svg" alt="Project logo"></a>
+ <img width=300px height=300px src="frontend\src\components\Navbar\download.svg" alt="Project logo"></a>
 </p>
 
 <h3 align="center">AswaQuna</h3>
@@ -53,6 +53,7 @@ Backend :
 
 npm i
 npm i express
+npm i nodemon
 npm i mongoose
 npm i dotenv
 npm i jsonwebtoken
