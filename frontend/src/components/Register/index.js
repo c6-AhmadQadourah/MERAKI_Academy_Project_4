@@ -65,7 +65,7 @@ role}
       <input placeholder="Email" className="RegInput" onChange={(e)=>{setEmail(e.target.value)}}/>
 
       
-      <input placeholder="Password" className="RegInput" onChange={(e)=>{setPassword(e.target.value)}}/>
+      <input type={"password"} placeholder="Password" className="RegInput" onChange={(e)=>{setPassword(e.target.value)}}/>
 
 
       

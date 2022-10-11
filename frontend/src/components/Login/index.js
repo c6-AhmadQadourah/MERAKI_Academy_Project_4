@@ -96,7 +96,7 @@ useEffect(() => {
 {/* <p> Email</p> */}
 <input className="emailInput" placeholder="  Email " onChange={(e)=>{setEmail(e.target.value)}}/>
 {/* <p> Password</p> */}
-<input className="emailInput" placeholder=" Password " onChange={(e)=>{setPassword(e.target.value)}}/>
+<input type={"password"} className="emailInput" placeholder=" Password " onChange={(e)=>{setPassword(e.target.value)}}/>
 
 
 {loggedInSucssfully&& <div className="popuptry">

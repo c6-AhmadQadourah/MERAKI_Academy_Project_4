@@ -72,10 +72,12 @@ npm i axios
 npm run dev
 ```
 
+
+
 4. Run application using git bash inside frontend folder
 
 ```
-npm run start
+npm  start
 ```
 
 Now app ready to use
